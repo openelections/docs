@@ -1,4 +1,4 @@
-docs
-====
+OpenElections Documentation
+===========================
 
-Documentation for The OpenElections project
+This repository contains documentation for The OpenElections project, including volunteer guides, a glossary of key terms and more to come. 
