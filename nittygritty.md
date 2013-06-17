@@ -1,6 +1,6 @@
-# Getting Involved  – The Nitty Gritty
+## Getting Involved  – The Nitty Gritty
 
-## How to Help OpenElections
+### How to Help OpenElections
 
 Election data is hard. We need your help to make it easy. And free (as in speech and beer).
 
