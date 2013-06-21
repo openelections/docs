@@ -1,3 +1,8 @@
+layout: default
+title: FAQ
+permalink: /faq/
+---
+
 # FAQs about OpenElections
 
   Q: What is this all about?
