@@ -1,3 +1,9 @@
+---
+layout: default
+title: OpenElections Glossary
+permalink: /glossary/
+---
+
 ## OpenElections Glossary
 
 These terms are used within the OpenElections admin and the project generally.

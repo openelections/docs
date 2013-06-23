@@ -1,3 +1,9 @@
+---
+layout: default
+title: Getting Involved
+permalink: /getting-involved/
+---
+
 ## Getting Involved  – The Nitty Gritty
 
 ### How to Help OpenElections

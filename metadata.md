@@ -1,9 +1,14 @@
+---
+layout: default
+title: Election Metadata
+permalink: /election-metadata/
+---
+
 ## Metadata Field List
 
 To help with the process of identifying and entering Metadata, we have created this abbreviated data entry guide for our volunteers. These are the data points we will need you to identify on state board of elections web sites, and enter into the admin.
 
 You can also find a more detailed description of the entry process in the post ‘Getting Involved – The Nitty Gritty‘.
-
 
 ### STATE OVERVIEW
 
