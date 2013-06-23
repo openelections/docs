@@ -1,3 +1,8 @@
+layout: default
+title: FAQ
+permalink: /faq/
+---
+
 # FAQs about OpenElections
 
   Q: Will you be providing live, real-time election results?
