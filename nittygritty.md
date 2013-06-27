@@ -109,7 +109,7 @@ Below are more details on each field in this section.
 
 **Special**&nbsp;- Check this box if the race is a special election. A special election is one that takes place outside of the normally scheduled election cycle for a given office. Think of it as a modifier of the options in&nbsp;**race type**.
 
-**Primary type** – If it’s a primary, select whether it’s _open_, _closed_, _blanket_, or _other_. _Other_ should be used for edge cases such as Kansas, which has “semi-closed” primaries. See below note on primaries for more details.
+**Primary type** – If it’s a primary, select whether it’s _open_, _closed_, _semi-closed_, _semi-open_, _blanket_, or _other_. _Other_ should be used for edge cases such as states where parties have different primary types. See below note on primaries for more details.
 
 **Primary note&nbsp;**\- Explain any idiosyncrasies about primaries here. If you select&nbsp;_Other_ for the&nbsp;**primary type** field, you must supply a note explaining the edge case. For example, Kansas and a number of other states have _semi-closed_ primaries.
 
@@ -117,7 +117,9 @@ Below are more details on each field in this section.
 
 #### A Note on Primaries
 
-Most primary elections are closed, meaning that voters can only vote in partisan primaries for the party with which they’re registered. A number of states, however, have open or blanket primaries (see [Wikipedia for a good write-up on the differences).][18]
+Most primary elections are closed, meaning that voters can only vote in
+partisan primaries for the party with which they’re registered. A number
+of states, however, have open, semi-open, semi-closed, or blanket primaries (see [Wikipedia for a good write-up on the differences).][18]
 
 While the type of primary is rarely indicated in results data, this information is valuable to OpenElections because it will help us validate results down the road. Some states change primary types over time, such as California, which switched to an open primary system in 2012. In order to verify primary type over time, volunteers should check with state election officials to get a sense of the primary system’s history. This is a great question to ask during the [initial data interview][19] with state officials.
 

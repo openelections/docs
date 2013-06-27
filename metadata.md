@@ -31,7 +31,7 @@ You can also find a more detailed description of the entry process in the post �
 * Start and end date – (usually same)
 * Race type — (Primary, General, Recall, Runoff)
 * Special – (yes or no)
-* Primary type – (Closed, Open, Blanket, Other)
+* Primary type – (Closed, Open, Blanket, Semi-Closed, Semi-Open, Other)
 * Primary Note – Required if primary type = Other (use to explain edge cases, such as when different parties have different voter eligibility rules)
 * Absentee and Provisional – Do result files include vote counts for these types? (yes or no)
 
