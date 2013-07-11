@@ -14,9 +14,13 @@ This screencast, in two parts, walks you through the process of identifying the 
 ‘<iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>’
 
 0:32 - The four main data points
+
 1:23 - Example one: California
+
 1:37 - FEC Web Site state contact info directory
+
 4:57 - Example two: Rhode Island
+
 7:55 - Example three: Alabama
 
 
