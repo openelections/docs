@@ -29,11 +29,17 @@ This screencast, in two parts, walks you through the process of identifying the 
 ‘<iframe width="560" height="315" src="//www.youtube.com/embed/WLhyEAXZbr8" frameborder="0" allowfullscreen></iframe>’
 
 0:28 - Entering Rhode Island
+
 2:03 - Data Source Section
+
 4:38 - Election Metadata Section
+
 5:57 - Offices Covered Section
+
 6:28 - Results Breakdown Section
+
 7:53 - Notes Section
+
 8:25 - FOIA Logs Section
 
 
