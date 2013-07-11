@@ -11,7 +11,7 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 ## Part One - Identifying the Metadata
 
-‘<iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>’
+'<iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>'
 
 0:32 - The four main data points
 
@@ -26,7 +26,7 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 ## Part Two - Entering the Metadata
 
-‘<iframe width="560" height="315" src="//www.youtube.com/embed/WLhyEAXZbr8" frameborder="0" allowfullscreen></iframe>’
+'<iframe width="560" height="315" src="//www.youtube.com/embed/WLhyEAXZbr8" frameborder="0" allowfullscreen></iframe>'
 
 0:28 - Entering Rhode Island
 
@@ -43,6 +43,6 @@ This screencast, in two parts, walks you through the process of identifying the 
 8:25 - FOIA Logs Section
 
 
-For more information, or if you have further questions, contact us at [openelections@gmail.com](mailto:openelections@gmail.com), join our [google group](https://groups.google.com/forum/?fromgroups#!forum/openelections0, or see more info in these Docs.
+For more information, or if you have further questions, contact us at [openelections@gmail.com](mailto:openelections@gmail.com), join our [google group](https://groups.google.com/forum/?fromgroups#!forum/openelections), or see more info in these Docs.
 
 
