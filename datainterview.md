@@ -4,7 +4,7 @@ Below are some suggested questions. The overall goal is to get a sense of the el
 
 ### Questions
 
-*Can you describe the election data lifecycle in your state, from pre-election data gathering (e.g. candidate lists) to post-election results certification?  
+*Can you describe the election data lifecycle in your state, from pre-election data gathering (e.g. candidate lists) to post-election results certification?*
 
 *Can you describe the results certification process? How does data certified at the local level filter up to the state?  
 
