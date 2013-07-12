@@ -29,19 +29,13 @@ alt="Metadata Entry Screencast Pt 1" width="340" height="255" border="10" /></a>
 " target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg" 
 alt="Metadata Entry Screencast Pt 2" width="340" height="255" border="10" /></a>
 
-0:28 - Entering Rhode Island
-
-2:03 - Data Source Section
-
-4:38 - Election Metadata Section
-
-5:57 - Offices Covered Section
-
-6:28 - Results Breakdown Section
-
-7:53 - Notes Section
-
-8:25 - FOIA Logs Section
+* 0:28 - Entering Rhode Island
+* 2:03 - Data Source Section
+* 4:38 - Election Metadata Section
+* 5:57 - Offices Covered Section
+* 6:28 - Results Breakdown Section
+* 7:53 - Notes Section
+* 8:25 - FOIA Logs Section
 
 
 
