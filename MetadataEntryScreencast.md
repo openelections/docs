@@ -13,7 +13,7 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=f_uli1lo6XY
 " target="_blank"><img src="http://img.youtube.com/vi/f_uli1lo6XY/0.jpg" 
-alt="Metadata Entry Screencast Pt 1" width="240" height="180" border="10" /></a>
+alt="Metadata Entry Screencast Pt 1" width="340" height="255" border="10" /></a>
 
 
 0:32 - The four main data points
@@ -31,7 +31,7 @@ alt="Metadata Entry Screencast Pt 1" width="240" height="180" border="10" /></a>
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WLhyEAXZbr8
 " target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg" 
-alt="Metadata Entry Screencast Pt 2" width="240" height="180" border="10" /></a>
+alt="Metadata Entry Screencast Pt 2" width="340" height="255" border="10" /></a>
 
 0:28 - Entering Rhode Island
 
