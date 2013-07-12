@@ -1,4 +1,6 @@
-### A cheatsheet for the initial interview with election data sources. Below are some suggested questions. The overall goal is to get a sense of the elections data landscape for a state, and of course, to identify the best source of certified results.
+### A cheatsheet for the initial interview with election data sources.  
+
+Below are some suggested questions. The overall goal is to get a sense of the elections data landscape for a state, and of course, to identify the best source of certified results.  
 
 ### Questions
 
