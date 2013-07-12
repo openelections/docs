@@ -6,7 +6,7 @@ permalink: /metadata-screencast/
 
 ## Metadata Entry Screencast
 
-This screencast, in two parts, walks you through the process of identifying the relevant election results data on a stateboard of election's web site, and entering it into the OpenElections project admin.
+This screencast, in two parts, walks you through the process of identifying the relevant election results data on a state board of election's web site, and entering it into the OpenElections project admin.
 
 
 ### Part One - Identifying the Metadata
