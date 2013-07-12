@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Initial Data Interview
-permalink: /datainterview/
+permalink: /data-interview/
 ---
 
 
