@@ -11,7 +11,7 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 ## Part One - Identifying the Metadata
 
-'<iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>'
+`<iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>`
 
 0:32 - The four main data points
 
@@ -26,7 +26,7 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 ## Part Two - Entering the Metadata
 
-'<iframe width="560" height="315" src="//www.youtube.com/embed/WLhyEAXZbr8" frameborder="0" allowfullscreen></iframe>'
+`<iframe width="560" height="315" src="//www.youtube.com/embed/WLhyEAXZbr8" frameborder="0" allowfullscreen></iframe>`
 
 0:28 - Entering Rhode Island
 
