@@ -4,12 +4,12 @@ title: Metadata Entry Screencast
 permalink: /metadata-screencast/
 ---
 
-# Metadata Entry Screencast
+## Metadata Entry Screencast
 
 This screencast, in two parts, walks you through the process of identifying the relevant election results data on a stateboard of election's web site, and entering it into the OpenElections project admin.
 
 
-## Part One - Identifying the Metadata
+### Part One - Identifying the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=f_uli1lo6XY
 " target="_blank"><img src="http://img.youtube.com/vi/f_uli1lo6XY/0.jpg" 
@@ -27,7 +27,7 @@ alt="Metadata Entry Screencast Pt 1" width="240" height="180" border="10" /></a>
 7:55 - Example three: Alabama
 
 
-## Part Two - Entering the Metadata
+### Part Two - Entering the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WLhyEAXZbr8
 " target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg" 
