@@ -167,7 +167,7 @@ The FOIA contact logs should be used to track the history of important conversat
   * Detailed conversations about the technical aspects of the results system (extended conversations can be recorded in a Google Doc and linked to from the FOIA Log record – be sure to make the Google Doc accessible to anyone who has the link).
   * Formal public records requests – please keep copies of any records requests submitted.
 
-![][68]
+
 
    [1]: http://openelections.files.wordpress.com/2013/02/bannerlogofinal.jpg
    [2]: http://blog.openelections.net/
