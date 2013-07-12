@@ -23,6 +23,7 @@ alt="Metadata Entry Screencast Pt 1" width="340" height="255" border="10" /></a>
 * 7:55 - Example three: Alabama
 
 
+
 ### Part Two - Entering the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WLhyEAXZbr8
