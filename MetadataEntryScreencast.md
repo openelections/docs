@@ -30,9 +30,8 @@ alt="Metadata Entry Screencast Pt 1" width="240" height="180" border="10" /></a>
 ## Part Two - Entering the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WLhyEAXZbr8
-" target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg" 
 alt="Metadata Entry Screencast Pt 2" width="240" height="180" border="10" /></a>
-
 
 0:28 - Entering Rhode Island
 
