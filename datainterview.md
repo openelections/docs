@@ -1,3 +1,10 @@
+---
+layout: default
+title: Initial Data Interview
+permalink: /datainterview/
+---
+
+
 ## Volunteer Cheatsheet -- The Initial Data Interview
 
 ### A cheatsheet for the initial interview with election data sources.  
