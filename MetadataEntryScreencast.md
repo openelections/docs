@@ -11,7 +11,10 @@ This screencast, in two parts, walks you through the process of identifying the 
 
 ## Part One - Identifying the Metadata
 
-'iframe width="560" height="315" src="//www.youtube.com/embed/f_uli1lo6XY" frameborder="0" allowfullscreen></iframe>'
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=f_uli1lo6XY
+" target="_blank"><img src="http://img.youtube.com/vi/f_uli1lo6XY/0.jpg" 
+alt="Metadata Entry Screencast Pt 1" width="240" height="180" border="10" /></a>
+
 
 0:32 - The four main data points
 
