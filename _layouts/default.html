@@ -15,7 +15,8 @@
     <link rel="shortcut icon" href="/assets/img/favicon.ico" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
     
@@ -38,15 +39,29 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="/">OpenElections Documentation</a>
+            <a class="brand" href="/">OpenElections Docs</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="/faq/">FAQ</a></li>
                 <li><a href="/glossary/">Glossary</a></li>
-                <li><a href="/getting-involved/">Getting Involved</a></li>
-                <li><a href="/election-metadata/">Election Metadata</a></li>
-                <li><a href="/metadata-screencast/">Metadata Entry Screencast</a></li>
-                <li><a href="/data-interview/">Initial Data Interview Cheat Sheet</a></li>
+                <li class="dropdown">
+                  <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Getting Involved
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/getting-involved/">The Nitty Gritty</a></li>
+                    <li><a href="/data-interview/">Data Interview</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Metadata
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/election-metadata/">Overview</a></li>
+                    <li><a href="/metadata-screencast/">Screencast</a></li>
+                  </ul>
+                </li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
