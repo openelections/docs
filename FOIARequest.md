@@ -1,6 +1,12 @@
-Making a FOIA Request
+---
+layout: default
+title: Election Metadata
+permalink: /foia-request/
+---
 
-If you encounter resistance from a state board of elections, or they simply ask you to submit one as part of their protocol for releasing election results, you can make a formal FOIA Request.
+## Making a FOIA Request
+
+If you encounter resistance from a state board of elections, or they simply ask you to submit one as part of their protocol for releasing election results, you can make a formal (FOIA Request)[http://www.foia.gov/].
 
 This handy automatic letter generator makes this process simple and easy. Here are the steps we would like you to follow.
 
