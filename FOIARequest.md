@@ -17,7 +17,7 @@ This handy [automatic letter generator](http://www.rcfp.org/foia) makes this pro
 
 * Copy or download the letter that is generated.
 
-* Give a copy of the letter to OpenElections staff for review. You can email [Serdar](mailto:zstumgoren@gmail.com) or [Derek](mailto:dwillis@gmail.com) directly.
+* Give a copy of the letter to OpenElections staff for our records. You can email [Serdar](mailto:zstumgoren@gmail.com) or [Derek](mailto:dwillis@gmail.com) directly.
 
 * Send or email it yourself to the contact you find on the FEC site.
 
