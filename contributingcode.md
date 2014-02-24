@@ -21,16 +21,25 @@ At the 30,000 foot level, here's what our "world" looks like:
 
 Here's a high-level snapshot of how a state directory's code is organized, using Maryland as an example:
 
-openelex/us/md/
-    process.md - Markdown-formatted description of non-standard data gathering process, if not fully automated.
-    corrections.csv - CSV containing info on corrections to be applied to raw results.
-    datasource.py - maps raw data sources to standardized filenames and metadata
-    mappings/ - misc metadata files for data processing pipeline
-    load/ | load.py - data loaders from local cache into mongo
-    parse/  - (optional) break out parsers if you have lots of them
-    transform/ | transform.py - step-wise data clean ups
-    validate/ | validate.py - data integrity tests
-    bake/ | bake.py 
+	openelex/us/md/
+
+	    process.md - Markdown-formatted description of non-standard data gathering process, if not fully automated.
+
+	    corrections.csv - CSV containing info on corrections to be applied to raw results.
+
+	    datasource.py - maps raw data sources to standardized filenames and metadata
+
+	    mappings/ - misc metadata files for data processing pipeline
+
+	    load/ | load.py - data loaders from local cache into mongo
+
+	    parse/  - (optional) break out parsers if you have lots of them
+
+	    transform/ | transform.py - step-wise data clean ups
+
+	    validate/ | validate.py - data integrity tests
+
+	    bake/ | bake.py 
 
 As a contributor, we appreciate any part of the data process you can help us with :)
 
