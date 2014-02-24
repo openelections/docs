@@ -29,4 +29,4 @@ Below are some suggested questions. The overall goal is to get a sense of the el
 
 *Does the state have open or closed primaries and primary runoffs? Has that status changed since 2000?*  
 
-*Anything else we should know about the data that we haven’t asked?*
+*Anything else we should know about the data that we haven't asked?*

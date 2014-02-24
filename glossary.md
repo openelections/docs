@@ -38,7 +38,7 @@ The date an election ends. Most elections, but not all of them, begin and end on
 
 #### FEC Clearinghouse
 
-The Federal Election Commission site that provides an overview of election policies, activities, and (for our purposes) a page that links to each state’s local elections management entity where election results are archived. Detailed information about each one is provided, including address and all primary contacts.
+The Federal Election Commission site that provides an overview of election policies, activities, and (for our purposes) a page that links to each state's local elections management entity where election results are archived. Detailed information about each one is provided, including address and all primary contacts.
 
 #### FOIA - Freedom of Information Act or similar.
 
@@ -58,7 +58,7 @@ A primary election in which candidates appear on a single ballot, regardless of 
 
 #### Portal Link
 
-A link to the page on a state’s official election website that has an overview of election results (if there are several levels of pages, use the page that is one level above where you can access the results for a specific race).
+A link to the page on a state's official election website that has an overview of election results (if there are several levels of pages, use the page that is one level above where you can access the results for a specific race).
 
 #### Precinct Reporting Level
 
@@ -74,7 +74,7 @@ Provisional ballots are for would-be voters who assert that they are registered 
 
 #### Race Type
 
-The possible types of elections: Primary, Runoff, General and Recall. Special primaries, generals and runoffs are often held outside of the normal election cycle when a seat becomes vacant (See “Special Election” for more details).
+The possible types of elections: Primary, Runoff, General and Recall. Special primaries, generals and runoffs are often held outside of the normal election cycle when a seat becomes vacant (See "Special Election" for more details).
 
 #### Race-wide Reporting Level
 
@@ -106,7 +106,7 @@ Results tabulated by state legislative district for a state-wide or federal race
 
 #### State Legislature
 
-A state legislature is a generic term referring to the legislative body of any of the country’s 50 states. The formal name varies from state to state. In 25 states, the legislature is simply called the Legislature, or the State Legislature, while in 19 states, the legislature is called the “General Assembly”. In Massachusetts and New Hampshire, the legislature is called the General Court, while North Dakota and Oregon designate the legislature as the Legislative Assembly. Most states have two chambers, but Nebraska has just one.
+A state legislature is a generic term referring to the legislative body of any of the country's 50 states. The formal name varies from state to state. In 25 states, the legislature is simply called the Legislature, or the State Legislature, while in 19 states, the legislature is called the "General Assembly". In Massachusetts and New Hampshire, the legislature is called the General Court, while North Dakota and Oregon designate the legislature as the Legislative Assembly. Most states have two chambers, but Nebraska has just one.
 
 #### U.S. House
 

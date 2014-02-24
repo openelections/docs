@@ -21,7 +21,7 @@ You can also find a more detailed description of the entry process in the post �
 #### Data Source
 
 * Organization — Name and contact info for state elections entity
-* Portal Link — Link to the entity’s main page for elections results or search area
+* Portal Link — Link to the entity's main page for elections results or search area
 * Direct Link — Link to results file
 * Results Type — (certified of unofficial)
 * Format(s) — Downloadable or available formats (e.g. pdf, xls, csv, html)
