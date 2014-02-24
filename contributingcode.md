@@ -41,26 +41,29 @@ If we haven't scared you off by now, let's dive in.
 Before you can do any coding, you have to bootstrap your environment. Once that's done, you're ready to start feeding data into our pipeline.
 
 ## Data Pipeline
+
 #### Overview
 
 OpenElections uses [invoke](http://docs.pyinvoke.org/en/latest/), a task execution framework, to manage the data processing pipeline. You don't have to write any invoke tasks of your own, but you can use invoke to make local development easier and help us process the data you've gathered. 
 
 Invoke provides command-line tasks to:
-	* Inspect data source urls and associated metadata
-	* Download raw data and save it locally under a standardized file name 
-	* Inspect and clear files downloaded to a local cache
-	* Load data from cache into the data store
-	* Apply transformations to stored data
-	* Run validations to ensure data integrity
-	* Bake standardized results out to CSVs and JSON
+
+* Inspect data source urls and associated metadata
+* Download raw data and save it locally under a standardized file name 
+* Inspect and clear files downloaded to a local cache
+* Load data from cache into the data store
+* Apply transformations to stored data
+* Run validations to ensure data integrity
+* Bake standardized results out to CSVs and JSON
 
 The OpenElections team will help you wire up your code so that it "just works" using the invoke framework.
 
 Here's a quick primer on how to get started.
 
 Pre-flight check:
-	* Have you bootstrapped your environment?
-	* Have you navigated on the command line to the openelex-core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from openelex-core or a subdirectory such as openelex-core/openelex/us.
+
+* Have you bootstrapped your environment?
+* Have you navigated on the command line to the openelex-core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from openelex-core or a subdirectory such as openelex-core/openelex/us.
 
 You can learn more about available invoke tasks by dropping to the command line.
 
@@ -177,8 +180,8 @@ List available transforms for state.
 
 MD transforms, in order of execution:
 
-	* parse_candidate_names
-	* standardize_office_names
+* parse_candidate_names
+* standardize_office_names
 
 Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT. You can select one or more transforms to run using the --include flag with a comma-separated list of function names. Or you can run all but selected transforms using the --exclude flag.
 
@@ -250,12 +253,14 @@ Any data extraction process that is not fully automated (and integrated into the
 
 You'll occasionally run into raw result files that contain incorrect data -- a candidate name misspelled, or candidate parties swapped. Ideally, such inaccuracies should be reported to the source agency so they can fix their data. Of course, to ensure accuracy in the meantime, a record of the correction should be stored a corrections.csv file so that during the Transform process the raw data can be fixed.
 
-This file should live at at the root of the state directory (core/openelex/us/<state>/corrections.csv) and  contain four columns:
+This file should live at at the root of the state directory (core/openelex/us/<state>/corrections.csv) and contain four columns:
+
 source - standardized name of raw results file that has incorrect data. From Datasource.
 description - Description of error and change that is necessary
 fixed? - [true|false]
 transform - Name of transform that applies correction. Blank until transform is written.
-En Fin
+
+## En Fin
 
 Time to celebrate! You've helped bring transparency to American democracy! And in the process, you got a sweet OpenElections T-shirt that proves to the world you helped FREE THE DATA! (You did get a shirt, right?)
 
