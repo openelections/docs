@@ -4,7 +4,7 @@ title: Code Contribution Guide
 permalink: /guide/
 ---
 
-## Overview
+## Contributing Code
 
 Every state presents unique challenges when it comes to data. Some results will require manual clean-up or data entry, steps that are hard to capture in code. Others will be perfectly structured CSVs, ready for any mere mortal to download and use.
 
@@ -38,7 +38,7 @@ If we haven't scared you off by now, let's dive in.
 
 ## Bootstrapping
 
-Before you can do any coding, you have to bootstrap your environment. Once that's done, you're ready to start feeding data into our pipeline.
+Before you can do any coding, you have to [bootstrap your environment](https://github.com/openelections/core). Once that's done, you're ready to start feeding data into our pipeline.
 
 ## Data Pipeline
 
@@ -62,7 +62,7 @@ Here's a quick primer on how to get started.
 
 Pre-flight check:
 
-* Have you bootstrapped your environment?
+* Have you [bootstrapped your environment](https://github.com/openelections/core)?
 * Have you navigated on the command line to the openelex-core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from openelex-core or a subdirectory such as openelex-core/openelex/us.
 
 You can learn more about available invoke tasks by dropping to the command line.
@@ -84,7 +84,7 @@ Our data processing pipeline begins with datasource.py, which begins the process
 
 This module encapsulates all the information needed to download data files from source agencies, save the files locally under a standardized name, and make them available for parsing and loading into our data store.
 
-Most states involve more than a simple web scrape. You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry.  More likely, you have a combination of easy-to-use data and older files that are harder to work with. The OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
+[Most states involve more than a simple web scrape](archive-standardization). You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry.  More likely, you have a combination of easy-to-use data and older files that are harder to work with. The OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
 
 A lot depends on how the results data is organized and stored by the original source. It may come as single spreadsheet files, individual HTML pages or PDF documents. The job for the datasource file is to provide an interface to that data, rename the files using OpenElections conventions and provide some basic political geographic elements. For example, here is the representation of a single results file from Baltimore City for the 2012 primary, mapping it to a OpenElections generated filename:
 
