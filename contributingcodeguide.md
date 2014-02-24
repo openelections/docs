@@ -270,7 +270,7 @@ We welcome your ideas on new ways to add value and generally make the raw output
 
 The OpenElections Crew
 
-Sara Schnaadt
+Sara Schnadt
 Serdar Tumgoren
 Derek Willis
 Geoffrey Hing
