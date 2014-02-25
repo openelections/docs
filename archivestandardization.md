@@ -34,6 +34,6 @@ Not every state has individual files for a jurisdiction, however. Ohio has preci
 
 	20041102__oh__general__precincts.xls
 
-Or a single HTML file for a special general election for a single office:
+Or a single file for a special general election for a single office:
 
-	20071211__oh__general__special__house__5.aspx
+	20071211__oh__general__special__house__5.csv
