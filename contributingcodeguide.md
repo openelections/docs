@@ -19,6 +19,8 @@ At the 30,000 foot level, here's what our "world" looks like:
 5. Check data accuracy
 6. Bake out beautifully structured, easy-to-use CSVs and JSON. Mere mortals rejoice!
 
+We use Python (2.7 for now) to accomplish most of these tasks.
+
 Here's a high-level snapshot of how a state directory's code is organized, using Maryland as an example:
 
 	openelex/us/md/
