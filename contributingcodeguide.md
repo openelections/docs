@@ -262,6 +262,21 @@ description - Description of error and change that is necessary
 fixed? - [true|false]
 transform - Name of transform that applies correction. Blank until transform is written.
 
+#### Metadata
+
+Metadata for offices and parties are loaded from the CSV files
+``us/fixtures/office.csv`` and ``us/fixtures/party.csv``.
+
+As you encounter new offices or political parties in your state data, you
+can add them to these files. 
+
+The updated data  can be loaded into the database using the
+``load_metadata.run`` task.  For example, to load new offices, use the command:
+
+```bash
+invoke load_metadata.run --collection=office
+```
+
 ## En Fin
 
 Time to celebrate! You've helped bring transparency to American democracy! And in the process, you got a sweet OpenElections T-shirt that proves to the world you helped FREE THE DATA! (You did get a shirt, right?)
