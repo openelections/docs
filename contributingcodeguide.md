@@ -69,16 +69,22 @@ Pre-flight check:
 
 You can learn more about available invoke tasks by dropping to the command line.
 
-	$ cd /path/to/openelex-core/openelex
-	$ invoke --help
+```bash
+cd /path/to/openelex-core/openelex
+invoke --help
+```
 
 List available invoke tasks.
 
-	$ invoke --list
+```bash
+invoke --list
+```
 
 View help for a specific task.
 
-	$ invoke --help cache.clear
+```bash
+invoke --help cache.clear
+```
 
 #### Datasource
 
@@ -104,39 +110,55 @@ NOTE: Below code snippets use Maryland as an example.
 
 List election metadata for all years (from our [Metadata API](http://blog.openelections.net/2013/10/23/an-improved-metadata-api/); warning: output is very verbose).
 
-	$ invoke datasource.elections --state md
+```bash
+invoke datasource.elections --state md
+```
 
 List metadata for one year.
 
-	$ invoke datasource.elections --state md --datefilter 2012
+```bash
+invoke datasource.elections --state md --datefilter 2012
+```
 
 List urls for raw data sources.
 
-	$ invoke datasource.target_urls --state md --datefilter 2012
+```bash
+invoke datasource.target_urls --state md --datefilter 2012
+```
 
 List the mapping between raw data source urls and standardized file names (saved to the local cache).
 
 List all years.
 
-	$ invoke datasource.filename_url_pairs --state md
+```bash
+invoke datasource.filename_url_pairs --state md
+```
 
 List one year.
 
-	$ invoke datasource.filename_url_pairs --state md --datefilter 2012
+```bash
+invoke datasource.filename_url_pairs --state md --datefilter 2012
+```
 
 And most importantly, the datasource.mappings task provides a year-by-year breakdown of metadata (raw url, standardized file name, OCD ID, and election ID). These bits of metadata are critical to the subsequent data loading step. The [OCD_ID](https://github.com/opencivicdata/ocd-division-ids) is a standardized way to refer to specific political geographies (states, counties, congressional districts, etc.) that makes it easier for OpenElections data to be shared across projects.
 
 List all mappings for state.
 
-	$ invoke datasource.mappings --state md
+```bash
+invoke datasource.mappings --state md
+```
 
 List mappings for one year.
 
-	$ invoke datasource.mappings --state md --datefilter 2012
+```bash
+invoke datasource.mappings --state md --datefilter 2012
+```
 
 You can pipe the mappings to a filenames.json, which is a snapshot of the mappings for use in the downstream load process.
 
-	$ invoke datasource.mappings --state md > us/md/mappings/filenames.json
+```bash
+invoke datasource.mappings --state md > us/md/mappings/filenames.json
+```
 
 #### Fetch/Cache
 
@@ -144,19 +166,27 @@ Once you've coded datasource.py, you can use the fetch task to download raw resu
 
 Download all files for the state.
 
-	$ invoke fetch --state md
+```bash
+invoke fetch --state md
+```
 
 Download files for one year.
 
-	$ invoke fetch --state md --datefilter 2012
+```bash
+invoke fetch --state md --datefilter 2012
+```
 
 List the contents of your local cache.
 
-	$ invoke cache.files --state md
+```bash
+invoke cache.files --state md
+```
 
 List cached files for one year.
 
-	$ invoke cache.files --state md --datefilter 2012
+```bash
+invoke cache.files --state md --datefilter 2012
+```
 
 #### Load
 
@@ -166,11 +196,15 @@ The load task imports raw results from locally cached files into the data store.
 
 Load all raw results in local cache.
 
-	$ invoke load.run --state md
+```bash
+invoke load.run --state md
+```
 
 Load results for one year.
 
-	$ invoke load.run --state md --datefilter 2012
+```bash
+invoke load.run --state md --datefilter 2012
+```
 
 #### Transform
 
@@ -178,7 +212,9 @@ Transforms are functions that update data after they've been loaded into our [da
 
 List available transforms for state.
 
-	$  invoke transform.list --state md
+```bash
+invoke transform.list --state md
+```
 
 MD transforms, in order of execution:
 
@@ -189,15 +225,21 @@ Transforms are run in the order that they are registered, so ORDERING IS IMPORTA
 
 Run all transforms for state.
 
-	$ invoke transform.run --state md
+```bash
+invoke transform.run --state md
+```
 
 Only run name parsing transform.
 
-	$ invoke transform.run --state md --include parse_candidate_names
+```bash
+invoke transform.run --state md --include parse_candidate_names
+```
 
 Run all transforms except name parsing.
 
-	$ invoke transform.run --state md --exclude parse_candidte_names
+```bash
+invoke transform.run --state md --exclude parse_candidte_names
+```
 
 #### Validate
 
@@ -209,19 +251,27 @@ Similar to transformations, you can include/exclude validations.
 
 List available validations.
 
-	$ invoke validate.list --state md
+```bash
+invoke validate.list --state md
+```
 
 Run all validations for a state.
 
-	$ invoke validate.run --state md
+```bash
+invoke validate.run --state md
+```
 
 Only run validate_unique_contests.
 
-	$ invoke validate.run --state md --include validate_unique_contests
+```bash
+invoke validate.run --state md --include validate_unique_contests
+```
 
 Run all validations except for validate_unique_contests.
 
-	$ invoke validate.run --state md --exclude validate_unique_contests
+```bash
+invoke validate.run --state md --exclude validate_unique_contests
+```
 
 #### Bake
 
@@ -229,19 +279,27 @@ This is the long-awaited final step, where we bake out raw results after applyin
 
 Bake all results for a state.
 
-	$ invoke bake.state_file --state md
+```bash
+invoke bake.state_file --state md
+```
 
 Bake results for one year.
 
-$ invoke bake.state_file --state md --datefilter 2012
+```bash
+invoke bake.state_file --state md --datefilter 2012
+```
 
 Bake results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
 	
-	$ invoke bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
+```bash
+invoke bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
+```
 
 Bake results to a JSON file instead of CSV.
 
-	$ invoke bake.state_file --state md --datefilter 2012 --format json
+```bash
+invoke bake.state_file --state md --datefilter 2012 --format json
+```
 
 ## Manual Processes
 
