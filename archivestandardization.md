@@ -20,7 +20,7 @@ Our filename standardization conventions for the “common” case should be dis
 
 The basic format for a generated filename is as follows:
 
-date__state__{party}__election_type__{special}__{jurisdiction}{office}__{reporting_level}.format
+	date__state__{party}__election_type__{special}__{jurisdiction}{office}__{reporting_level}.format
 
 So, for example:
 
