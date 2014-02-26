@@ -190,9 +190,9 @@ invoke cache.files --state md --datefilter 2012
 
 #### Load
 
-TODO: General description of the data loading process. Mention Mongo and MongeEngine and models.py. Also mention how we're importing results in as raw a form as possible and performing clean-ups as downstream "transform" steps. This probably needs a separate, more detailed doc referenced from here, and/or a general note that we'll work with contributor to craft the loader.
+Data loading involves stuffing raw results in a flat form into a Mongo database. The goal is to keep the data loader simple, and defer cleanups and transformations to downstream steps in the data pipeline.
 
-The load task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course :-)
+The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course!
 
 Load all raw results in local cache.
 
@@ -208,7 +208,7 @@ invoke load.run --state md --datefilter 2012
 
 #### Transform
 
-Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a transforms.py file.
+Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a *transforms.py* file.
 
 List available transforms for state.
 
@@ -221,7 +221,7 @@ MD transforms, in order of execution:
 * parse_candidate_names
 * standardize_office_names
 
-Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT. You can select one or more transforms to run using the --include flag with a comma-separated list of function names. Or you can run all but selected transforms using the --exclude flag.
+Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT. You can select one or more transforms to run using the *--include* flag with a comma-separated list of function names. Or you can run all but selected transforms using the *--exclude* flag. Also note that you can register validators with a transform. Validators, covered in the next section, are functions that check data after a transformation to ensure the result is correct.
 
 Run all transforms for state.
 
@@ -243,7 +243,7 @@ invoke transform.run --state md --exclude parse_candidte_names
 
 #### Validate
 
-Validations help ensure data integrity by running queries against results in the data store, typically at the end of the data processing pipeline (i.e., after the initial load and transformations have run). 
+Validations help ensure data integrity by running queries against results in the data store, typically after a particular transformation is run (You can link one or more validators with a transformation; see the previous section).
 
 All validations should be functions prefixed with "validate_" and importable from openelex.us.state.validate (e.g. from openelex.us.md.validate import validate_unique_contests).
 
