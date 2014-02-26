@@ -34,9 +34,7 @@ Here's a high-level snapshot of how a state directory's code is organized, using
 	    validate/ | validate.py - data integrity tests
 	    bake/ | bake.py 
 
-As a contributor, we appreciate any part of the data process you can help us with :)
-
-If we haven't scared you off by now, let's dive in.
+As a contributor, we appreciate any part of the data process you can help us with. Let's dive in!
 
 ## Bootstrapping
 
@@ -65,7 +63,7 @@ Here's a quick primer on how to get started.
 Pre-flight check:
 
 * Have you [bootstrapped your environment](https://github.com/openelections/core)?
-* Have you navigated on the command line to the openelex-core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from openelex-core or a subdirectory such as openelex-core/openelex/us.
+* Have you navigated on the command line to the core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from core or a subdirectory such as core/openelex/us.
 
 You can learn more about available invoke tasks by dropping to the command line.
 
@@ -88,9 +86,9 @@ invoke --help cache.clear
 
 #### Datasource
 
-Our data processing pipeline begins with datasource.py, which begins the process of taking source files and putting them into our system.
+Our data processing pipeline starts with ``datasource.py``, which handles the process of taking source files and organizing them for our system. This module encapsulates all the information needed to download data files from source agencies, save the files locally under a standardized name, and make them available for parsing and loading into our data store.
 
-This module encapsulates all the information needed to download data files from source agencies, save the files locally under a standardized name, and make them available for parsing and loading into our data store.
+Like the other parts of the process, a state-specific datasource.py subclasses a `BaseDatasource` that includes some generic functions for the most common tasks. Inside the state-specific datasource.py you'll write functions that handle parts of the process particular to that state: setting up scrapers, handling unusual file paths or a mix of formats.
 
 [Most states involve more than a simple web scrape](archive-standardization). You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry.  More likely, you have a combination of easy-to-use data and older files that are harder to work with. The OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
 
@@ -104,7 +102,13 @@ A lot depends on how the results data is organized and stored by the original so
       "name": "Baltimore City"
     }
 
-Once you've crafted datasource.py, you can query it for information about state data sources from the command line. 
+Ideally, the generated files correspond directly to the original source files so that even if the original file is a PDF and the generated file CSV, they both cover the same contests and results. In the case of most PDFs, the `generated_name` will be a CSV file.
+
+The best-case scenario is that all election results data for a state is available in the same file format, which means that you'd likely only need a small handful of functions to create the mappings. At the other end of the spectrum are states that use a combination of formats and naming conventions over time.
+
+To help construct these mappings, you should store helper files in a {state}/mappings directory. The first is ``{state}.csv``, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a ``url_paths.csv`` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
+
+Once you've crafted datasource.py, you can query it for information about a state's data sources from the command line. 
 
 NOTE: Below code snippets use Maryland as an example.
 
@@ -162,7 +166,9 @@ invoke datasource.mappings --state md > us/md/mappings/filenames.json
 
 #### Fetch/Cache
 
-Once you've coded datasource.py, you can use the fetch task to download raw result files for your state all at once, or year by year. Downloaded files are stored under their standardized names in a state/cache directory (e.g. md/cache). The cache directory is excluded from version control.
+The datasource.py file sets up the basic process, but it doesn't actually grab the raw result files. That's the job of ``fetch.py``. You can use the fetch task to download raw result files for your state all at once, or year by year. Downloaded files are stored under their standardized names in a {state}/cache directory (e.g. ``md/cache``). An important point: the {state}/cache directory is excluded from version control.
+
+We use the useful `requests` library to make HTTP requests and `BeautifulSoup` for HTML parsing.
 
 Download all files for the state.
 
@@ -190,9 +196,12 @@ invoke cache.files --state md --datefilter 2012
 
 #### Load
 
-Data loading involves stuffing raw results in a flat form into a Mongo database. The goal is to keep the data loader simple, and defer cleanups and transformations to downstream steps in the data pipeline.
+The load.py file is responsible for taking the raw results and putting them into a MongoDB database. The goal is to keep the data loader simple, and defer any data cleaning and transformations to downstream steps in the process. That said, this is where the process begins to place results data into our defined models, including `Candidate`, `Result` and `Contest`.
 
-The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course!
+The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course! Depending on how complex a state's data is - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple functions to handle this process.  
+
+We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV files. 
+
 
 Load all raw results in local cache.
 
@@ -208,7 +217,7 @@ invoke load.run --state md --datefilter 2012
 
 #### Transform
 
-Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a *transforms.py* file.
+Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a ``{state}\transforms.py`` file. A typical update might be parsing candidate names from a single field into name components.
 
 List available transforms for state.
 
@@ -243,7 +252,7 @@ invoke transform.run --state md --exclude parse_candidte_names
 
 #### Validate
 
-Validations help ensure data integrity by running queries against results in the data store, typically after a particular transformation is run (You can link one or more validators with a transformation; see the previous section).
+Validations help ensure data integrity by running queries against results in the data store, typically after a particular transformation is run (You can link one or more validators with a transformation; see the previous section). They exist in a ``{state}/validate.py`` file.
 
 All validations should be functions prefixed with "validate_" and importable from openelex.us.state.validate (e.g. from openelex.us.md.validate import validate_unique_contests).
 
@@ -275,7 +284,7 @@ invoke validate.run --state md --exclude validate_unique_contests
 
 #### Bake
 
-This is the long-awaited final step, where we bake out raw results after applying transforms (and validations, of course!) into flat files using one or more user-friendly formats. Regardless of format, results should conform to our standardized results spec.
+This is the long-awaited final step, where we bake out raw results after applying transforms (and validations, of course!) into flat files using one or more user-friendly formats. Regardless of format, results should conform to our [standardized results spec](https://github.com/openelections/specs/wiki/Results-Data-Spec-Version-2).
 
 Bake all results for a state.
 
@@ -313,23 +322,20 @@ Any data extraction process that is not fully automated (and integrated into the
 
 You'll occasionally run into raw result files that contain incorrect data -- a candidate name misspelled, or candidate parties swapped. Ideally, such inaccuracies should be reported to the source agency so they can fix their data. Of course, to ensure accuracy in the meantime, a record of the correction should be stored a corrections.csv file so that during the Transform process the raw data can be fixed.
 
-This file should live at at the root of the state directory (core/openelex/us/<state>/corrections.csv) and contain four columns:
+This file should live at at the root of the state directory (``core/openelex/us/<state>/corrections.csv``) and contain four columns:
 
-source - standardized name of raw results file that has incorrect data. From Datasource.
-description - Description of error and change that is necessary
-fixed? - [true|false]
-transform - Name of transform that applies correction. Blank until transform is written.
+* source - standardized name of raw results file that has incorrect data. From Datasource.
+* description - Description of error and change that is necessary
+* fixed? - [true|false]
+* transform - Name of transform that applies correction. Blank until transform is written.
 
 #### Metadata
 
-Metadata for offices and parties are loaded from the CSV files
-``us/fixtures/office.csv`` and ``us/fixtures/party.csv``.
+Metadata for offices and parties are loaded from the CSV files ``us/fixtures/office.csv`` and ``us/fixtures/party.csv``.
 
-As you encounter new offices or political parties in your state data, you
-can add them to these files. 
+As you encounter new offices or political parties in your state data, you should add them to these files. 
 
-The updated data  can be loaded into the database using the
-``load_metadata.run`` task.  For example, to load new offices, use the command:
+The updated data  can be loaded into the database using the ``load_metadata.run`` task.  For example, to load new offices, use the command:
 
 ```bash
 invoke load_metadata.run --collection=office
