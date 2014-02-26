@@ -65,7 +65,7 @@ Pre-flight check:
 * Have you [bootstrapped your environment](https://github.com/openelections/core)?
 * Have you navigated on the command line to the core/openelections directory? Note, you can only use invoke tasks from this directory. Errors will be thrown if you try to use invoke from core or a subdirectory such as core/openelex/us.
 
-You can learn more about available invoke tasks by dropping to the command line.
+You can learn more about available invoke tasks by dropping to the command line:
 
 ```bash
 cd /path/to/openelex-core/openelex
