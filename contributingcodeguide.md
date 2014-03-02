@@ -67,20 +67,20 @@ Pre-flight check:
 
 You can learn more about available invoke tasks by dropping to the command line:
 
-```bash
+```
 cd /path/to/openelex-core/openelex
 invoke --help
 ```
 
 List available invoke tasks.
 
-```bash
+```
 invoke --list
 ```
 
 View help for a specific task.
 
-```bash
+```
 invoke --help cache.clear
 ```
 
@@ -114,19 +114,19 @@ NOTE: Below code snippets use Maryland as an example.
 
 List election metadata for all years (from our [Metadata API](http://blog.openelections.net/2013/10/23/an-improved-metadata-api/); warning: output is very verbose).
 
-```bash
+```
 invoke datasource.elections --state md
 ```
 
 List metadata for one year.
 
-```bash
+```
 invoke datasource.elections --state md --datefilter 2012
 ```
 
 List urls for raw data sources.
 
-```bash
+```
 invoke datasource.target_urls --state md --datefilter 2012
 ```
 
@@ -134,13 +134,13 @@ List the mapping between raw data source urls and standardized file names (saved
 
 List all years.
 
-```bash
+```
 invoke datasource.filename_url_pairs --state md
 ```
 
 List one year.
 
-```bash
+```
 invoke datasource.filename_url_pairs --state md --datefilter 2012
 ```
 
@@ -148,19 +148,19 @@ And most importantly, the datasource.mappings task provides a year-by-year break
 
 List all mappings for state.
 
-```bash
+```
 invoke datasource.mappings --state md
 ```
 
 List mappings for one year.
 
-```bash
+```
 invoke datasource.mappings --state md --datefilter 2012
 ```
 
 You can pipe the mappings to a filenames.json, which is a snapshot of the mappings for use in the downstream load process.
 
-```bash
+```
 invoke datasource.mappings --state md > us/md/mappings/filenames.json
 ```
 
@@ -172,25 +172,25 @@ We use the useful `requests` library to make HTTP requests and `BeautifulSoup` f
 
 Download all files for the state.
 
-```bash
+```
 invoke fetch --state md
 ```
 
 Download files for one year.
 
-```bash
+```
 invoke fetch --state md --datefilter 2012
 ```
 
 List the contents of your local cache.
 
-```bash
+```
 invoke cache.files --state md
 ```
 
 List cached files for one year.
 
-```bash
+```
 invoke cache.files --state md --datefilter 2012
 ```
 
@@ -205,13 +205,13 @@ We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV fil
 
 Load all raw results in local cache.
 
-```bash
+```
 invoke load.run --state md
 ```
 
 Load results for one year.
 
-```bash
+```
 invoke load.run --state md --datefilter 2012
 ```
 
@@ -221,7 +221,7 @@ Transforms are functions that update data after they've been loaded into our [da
 
 List available transforms for state.
 
-```bash
+```
 invoke transform.list --state md
 ```
 
@@ -234,19 +234,19 @@ Transforms are run in the order that they are registered, so ORDERING IS IMPORTA
 
 Run all transforms for state.
 
-```bash
+```
 invoke transform.run --state md
 ```
 
 Only run name parsing transform.
 
-```bash
+```
 invoke transform.run --state md --include parse_candidate_names
 ```
 
 Run all transforms except name parsing.
 
-```bash
+```
 invoke transform.run --state md --exclude parse_candidte_names
 ```
 
@@ -260,25 +260,25 @@ Similar to transformations, you can include/exclude validations.
 
 List available validations.
 
-```bash
+```
 invoke validate.list --state md
 ```
 
 Run all validations for a state.
 
-```bash
+```
 invoke validate.run --state md
 ```
 
 Only run validate_unique_contests.
 
-```bash
+```
 invoke validate.run --state md --include validate_unique_contests
 ```
 
 Run all validations except for validate_unique_contests.
 
-```bash
+```
 invoke validate.run --state md --exclude validate_unique_contests
 ```
 
@@ -288,25 +288,25 @@ This is the long-awaited final step, where we bake out raw results after applyin
 
 Bake all results for a state.
 
-```bash
+```
 invoke bake.state_file --state md
 ```
 
 Bake results for one year.
 
-```bash
+```
 invoke bake.state_file --state md --datefilter 2012
 ```
 
 Bake results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
 	
-```bash
+```
 invoke bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
 ```
 
 Bake results to a JSON file instead of CSV.
 
-```bash
+```
 invoke bake.state_file --state md --datefilter 2012 --format json
 ```
 
@@ -339,7 +339,7 @@ As you encounter new offices or political parties in your state data, you should
 
 The updated data  can be loaded into the database using the ``load_metadata.run`` task.  For example, to load new offices, use the command:
 
-```bash
+```
 invoke load_metadata.run --collection=office
 ```
 
