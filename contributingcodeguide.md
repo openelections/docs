@@ -86,7 +86,7 @@ invoke --help cache.clear
 
 #### Datasource
 
-Our data processing pipeline starts with ``datasource.py``, which handles the process of taking source files and organizing them for our system. This module encapsulates all the information needed to download data files from source agencies, save the files locally under a standardized name, and make them available for parsing and loading into our data store.
+Our data processing pipeline starts with `datasource.py`, which handles the process of taking source files and organizing them for our system. This module encapsulates all the information needed to download data files from source agencies, save the files locally under a standardized name, and make them available for parsing and loading into our data store.
 
 Like the other parts of the process, a state-specific datasource.py subclasses a `BaseDatasource` that includes some generic functions for the most common tasks. Inside the state-specific datasource.py you'll write functions that handle parts of the process particular to that state: setting up scrapers, handling unusual file paths or a mix of formats.
 
@@ -108,7 +108,7 @@ Ideally, the generated files correspond directly to the original source files so
 
 The best-case scenario is that all election results data for a state is available in the same file format, which means that you'd likely only need a small handful of functions to create the mappings. At the other end of the spectrum are states that use a combination of formats and naming conventions over time.
 
-To help construct these mappings, you should store helper files in a {state}/mappings directory. The first is ``{state}.csv``, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a ``url_paths.csv`` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
+To help construct these mappings, you should store helper files in a `{state}/mappings` directory. The first is `{state}.csv`, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a `url_paths.csv` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
 
 Once you've crafted `datasource.py`, you can query it for information about a state's data sources from the command line.
 
@@ -168,7 +168,7 @@ invoke datasource.mappings --state md > us/md/mappings/filenames.json
 
 #### Fetch/Cache
 
-The datasource.py file sets up the basic process, but it doesn't actually grab the raw result files. That's the job of ``fetch.py``. You can use the fetch task to download raw result files for your state all at once, or year by year. Downloaded files are stored under their standardized names in a {state}/cache directory (e.g. ``md/cache``). An important point: the {state}/cache directory is excluded from version control.
+The datasource.py file sets up the basic process, but it doesn't actually grab the raw result files. That's the job of `fetch.py`. You can use the fetch task to download raw result files for your state all at once, or year by year. Downloaded files are stored under their standardized names in a `{state}/cache` directory (e.g. `md/cache`). An important point: the `{state}/cache` directory is excluded from version control.
 
 We use the useful `requests` library to make HTTP requests and `BeautifulSoup` for HTML parsing.
 
@@ -219,7 +219,7 @@ invoke load.run --state md --datefilter 2012
 
 #### Transform
 
-Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a ``{state}\transforms.py`` file. A typical update might be parsing candidate names from a single field into name components.
+Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a `{state}\transforms.py` file. A typical update might be parsing candidate names from a single field into name components.
 
 List available transforms for state.
 
@@ -254,7 +254,7 @@ invoke transform.run --state md --exclude parse_candidte_names
 
 #### Validate
 
-Validations help ensure data integrity by running queries against results in the data store, typically after a particular transformation is run (You can link one or more validators with a transformation; see the previous section). They exist in a ``{state}/validate.py`` file.
+Validations help ensure data integrity by running queries against results in the data store, typically after a particular transformation is run (You can link one or more validators with a transformation; see the previous section). They exist in a `{state}/validate.py` file.
 
 All validations should be functions prefixed with "validate_" and importable from openelex.us.state.validate (e.g. from openelex.us.md.validate import validate_unique_contests).
 
@@ -320,13 +320,13 @@ Some data sources are just too unwieldy to parse using a fully automated process
 
 Any data extraction process that is not fully automated (and integrated into the data processing pipeline) should be documented in a process.md file. The description should be minimal, just enough info to help recreate your process. Think bullet-points for the uninitiated.
 
-If a state requires a manual process, that process is documented in ``{state}/process.md``, along with any particular issues you might have come across during the process. These may include results that are incomplete or missing, or results which may require further investigation/follow-up with the source agency.
+If a state requires a manual process, that process is documented in `{state}/process.md`, along with any particular issues you might have come across during the process. These may include results that are incomplete or missing, or results which may require further investigation/follow-up with the source agency.
 
 #### Corrections
 
 You'll occasionally run into raw result files that contain incorrect data -- a candidate name misspelled, or candidate parties swapped. Ideally, such inaccuracies should be reported to the source agency so they can fix their data. Of course, to ensure accuracy in the meantime, a record of the correction should be stored a corrections.csv file so that during the Transform process the raw data can be fixed.
 
-This file should live at at the root of the state directory (``core/openelex/us/<state>/corrections.csv``) and contain four columns:
+This file should live at at the root of the state directory (`core/openelex/us/<state>/corrections.csv`) and contain four columns:
 
 * source - standardized name of raw results file that has incorrect data. From Datasource.
 * description - Description of error and change that is necessary
@@ -335,11 +335,11 @@ This file should live at at the root of the state directory (``core/openelex/us/
 
 #### Metadata
 
-Metadata for offices and parties are loaded from the CSV files ``us/fixtures/office.csv`` and ``us/fixtures/party.csv``.
+Metadata for offices and parties are loaded from the CSV files `us/fixtures/office.csv` and `us/fixtures/party.csv`.
 
 As you encounter new offices or political parties in your state data, you should add them to these files.
 
-The updated data  can be loaded into the database using the ``load_metadata.run`` task.  For example, to load new offices, use the command:
+The updated data  can be loaded into the database using the `load_metadata.run` task.  For example, to load new offices, use the command:
 
 ```
 invoke load_metadata.run --collection=office
