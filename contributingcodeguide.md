@@ -32,7 +32,7 @@ Here's a high-level snapshot of how a state directory's code is organized, using
 	    parse/  - (optional) break out parsers if you have lots of them
 	    transform/ | transform.py - step-wise data clean ups
 	    validate/ | validate.py - data integrity tests
-	    bake/ | bake.py 
+	    bake/ | bake.py
 
 As a contributor, we appreciate any part of the data process you can help us with. Let's dive in!
 
@@ -44,12 +44,12 @@ Before you can do any coding, you have to [bootstrap your environment](https://g
 
 #### Overview
 
-OpenElections uses [invoke](http://docs.pyinvoke.org/en/latest/), a task execution framework, to manage the data processing pipeline. You don't have to write any invoke tasks of your own, but you can use invoke to make local development easier and help us process the data you've gathered. 
+OpenElections uses [invoke](http://docs.pyinvoke.org/en/latest/), a task execution framework, to manage the data processing pipeline. You don't have to write any invoke tasks of your own, but you can use invoke to make local development easier and help us process the data you've gathered.
 
 Invoke provides command-line tasks to:
 
 * Inspect data source urls and associated metadata
-* Download raw data and save it locally under a standardized file name 
+* Download raw data and save it locally under a standardized file name
 * Inspect and clear files downloaded to a local cache
 * Load data from cache into the data store
 * Apply transformations to stored data
@@ -94,21 +94,23 @@ Like the other parts of the process, a state-specific datasource.py subclasses a
 
 A lot depends on how the results data is organized and stored by the original source. It may come as single spreadsheet files, individual HTML pages or PDF documents. The job for the datasource file is to provide an interface to that data, rename the files using OpenElections conventions and provide some basic political geographic elements. For example, here is the representation of a single results file from Baltimore City for the 2012 primary, mapping it to a OpenElections generated filename:
 
-    {
-      "ocd_id": "ocd-division/country:us/state:md/place:baltimore", 
-      "election": "md-2012-04-03-primary", 
-      "raw_url": "http://www.elections.state.md.us/elections/2012/election_data/Baltimore_City_By_Precinct_Republican_2012_Primary.csv", 
-      "generated_name": "20120403__md__republican__primary__baltimore_city__precinct.csv", 
-      "name": "Baltimore City"
-    }
+{% highlight json %}
+{
+  "ocd_id": "ocd-division/country:us/state:md/place:baltimore",
+  "election": "md-2012-04-03-primary",
+  "raw_url": "http://www.elections.state.md.us/elections/2012/election_data/Baltimore_City_By_Precinct_Republican_2012_Primary.csv",
+  "generated_name": "20120403__md__republican__primary__baltimore_city__precinct.csv",
+  "name": "Baltimore City"
+}
+{% endhighlight %}
 
 Ideally, the generated files correspond directly to the original source files so that even if the original file is a PDF and the generated file CSV, they both cover the same contests and results. In the case of most PDFs, the `generated_name` will be a CSV file.
 
 The best-case scenario is that all election results data for a state is available in the same file format, which means that you'd likely only need a small handful of functions to create the mappings. At the other end of the spectrum are states that use a combination of formats and naming conventions over time.
 
-To help construct these mappings, you should store helper files in a {state}/mappings directory. The first is ``{state}.csv``, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a ``url_paths.csv`` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
+To help construct these mappings, you should store helper files in a {state}/mappings directory. The first is ``{state}.csv``, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a ``url_paths.csv`` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
 
-Once you've crafted datasource.py, you can query it for information about a state's data sources from the command line. 
+Once you've crafted `datasource.py`, you can query it for information about a state's data sources from the command line.
 
 NOTE: Below code snippets use Maryland as an example.
 
@@ -198,9 +200,9 @@ invoke cache.files --state md --datefilter 2012
 
 The load.py file is responsible for taking the raw results and putting them into a MongoDB database. The goal is to keep the data loader simple, and defer any data cleaning and transformations to downstream steps in the process. That said, this is where the process begins to place results data into our defined models, including `Candidate`, `Result` and `Contest`.
 
-The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course! Depending on how complex a state's data is - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple functions to handle this process.  
+The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course! Depending on how complex a state's data is - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple functions to handle this process.
 
-We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV files. 
+We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV files.
 
 
 Load all raw results in local cache.
@@ -299,7 +301,7 @@ invoke bake.state_file --state md --datefilter 2012
 ```
 
 Bake results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
-	
+
 ```
 invoke bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
 ```
@@ -335,7 +337,7 @@ This file should live at at the root of the state directory (``core/openelex/us/
 
 Metadata for offices and parties are loaded from the CSV files ``us/fixtures/office.csv`` and ``us/fixtures/party.csv``.
 
-As you encounter new offices or political parties in your state data, you should add them to these files. 
+As you encounter new offices or political parties in your state data, you should add them to these files.
 
 The updated data  can be loaded into the database using the ``load_metadata.run`` task.  For example, to load new offices, use the command:
 
