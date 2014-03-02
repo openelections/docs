@@ -161,12 +161,6 @@ List mappings for one year.
 $ invoke datasource.mappings --state md --datefilter 2012
 {% endhighlight %}
 
-You can pipe the mappings to a filenames.json, which is a snapshot of the mappings for use in the downstream load process.
-
-{% highlight bash %}
-$ invoke datasource.mappings --state md > us/md/mappings/filenames.json
-{% endhighlight %}
-
 #### Fetch/Cache
 
 The datasource.py file sets up the basic process, but it doesn't actually grab the raw result files. That's the job of `fetch.py`. You can use the fetch task to download raw result files for your state all at once, or year by year. Downloaded files are stored under their standardized names in a `{state}/cache` directory (e.g. `md/cache`). An important point: the `{state}/cache` directory is excluded from version control.
