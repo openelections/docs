@@ -193,14 +193,15 @@ $ invoke cache.files --state md --datefilter 2012
 
 #### Load
 
-The load.py file is responsible for taking the raw results and putting them into a MongoDB database. The goal is to keep the data loader simple, and defer any data cleaning and transformations to downstream steps in the process. That said, this is where the process begins to place results data into our defined models, including `Candidate`, `Result` and `Contest`.
+The load.py file is responsible for taking the raw results and putting them into a MongoDB database. The goal is to keep the data loader simple, and defer any data cleaning and transformations to downstream steps in the process.  The loader should create `RawResult` model instances whose fields closely reflect the values in the raw data files.  You should do only minimal processing of the data in the load step, such as stripping leading and trailing whitespace or converting strings representing numeric values to numeric data types.
 
-The `load` task imports raw results from locally cached files into the data store. This assumes you've written the data loader for your state, of course! Depending on how complex a state's data is - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple functions to handle this process.
+Depending on the complexity of a state's data - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple classes and helper functions to handle this process.
 
 We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV files.
 
+Once you've implemented the `load` module for your state, the `load` task imports raw results from locally cached files into the data store.
 
-Load all raw results in local cache.
+Load all raw results from files in local cache to the database.
 
 {% highlight bash %}
 $ invoke load.run --state md
@@ -214,7 +215,37 @@ $ invoke load.run --state md --datefilter 2012
 
 #### Transform
 
-Transforms are functions that update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/). They must be registered in a `{state}\transforms.py` file. A typical update might be parsing candidate names from a single field into name components.
+Transforms are functions that create clean records or update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/).  The transform step is where you'll place results data that you loaded into `RawResult` models into our defined models, including `Candidate`, `Result` and `Contest`.  Transforms also clean or extract values from the raw data.  A typical update might be parsing candidate names from a single field into name components.
+
+Transforms must be defined and registered in a `{state}/transforms.py` file. They are run in the order that they are registered, so ORDERING IS IMPORTANT.
+
+{% highlight python %}
+from openelex.base.transform import registry
+
+def some_transform():
+    # ...
+
+def another_transform():
+    # ...
+   
+registry.register('md', some_transform)
+registry.register('md', another_transform)
+{% endhighlight %}
+
+Also note that you can register validators with a transform. Validators, covered in the next section, are functions that check data after a transformation to ensure the result is correct.
+
+{% highlight python %}
+from openelex.base.transform import registry
+
+from openelex.us.md.validate import validate_something
+
+def some_transform():
+    # ...
+
+registry.register('md', some_transform, [validate_something])
+{% endhighlight %}
+
+Once you've implemented and registered transforms for your state, the `transform` task  is used to list and run the transforms.
 
 List available transforms for state.
 
@@ -227,7 +258,7 @@ MD transforms, in order of execution:
 * parse_candidate_names
 * standardize_office_names
 
-Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT. You can select one or more transforms to run using the *--include* flag with a comma-separated list of function names. Or you can run all but selected transforms using the *--exclude* flag. Also note that you can register validators with a transform. Validators, covered in the next section, are functions that check data after a transformation to ensure the result is correct.
+You can select one or more transforms to run using the *--include* flag with a comma-separated list of function names. Or you can run all but selected transforms using the *--exclude* flag. 
 
 Run all transforms for state.
 
