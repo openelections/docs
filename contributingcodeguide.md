@@ -195,7 +195,9 @@ $ invoke cache.files --state md --datefilter 2012
 
 The load.py file is responsible for taking the raw results and putting them into a MongoDB database. The goal is to keep the data loader simple, and defer any data cleaning and transformations to downstream steps in the process.  The loader should create `RawResult` model instances whose fields closely reflect the values in the raw data files.  You should do only minimal processing of the data in the load step, such as stripping leading and trailing whitespace or converting strings representing numeric values to numeric data types.
 
-Depending on the complexity of a state's data - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple classes and helper functions to handle this process.
+To implement the loader for your state, you'll need to implement a ``LoadResults`` class in the ``openelex.us.{state}.load`` module.  In most cases, this class should be a subclass of ``openelex.base.load.BaseLoader`` and you'll need to implement the ``run()`` method.
+
+Depending on the complexity of a state's data - for example, if different years come in different formats or contain different types of data - the load.py could contain multiple classes and helper functions to handle this process.  In this case, ``LoadResults.run()`` will delegate to the other loader class' run methods.  ``openelex.us.md.LoadResults`` is an example of using this pattern.
 
 We use [unicodecsv](https://github.com/jdunck/python-unicodecsv) to read CSV files.
 
