@@ -217,21 +217,37 @@ $ invoke load.run --state md --datefilter 2012
 
 #### Transform
 
-Transforms are functions that create clean records or update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/).  The transform step is where you'll place results data that you loaded into `RawResult` models into our defined models, including `Candidate`, `Result` and `Contest`.  Transforms also clean or extract values from the raw data.  A typical update might be parsing candidate names from a single field into name components.
+Transforms create clean records or update data after they've been loaded into our [data store](http://docs.mongodb.org/manual/).  The transform step is where you'll place results data that you loaded into `RawResult` models, into our defined models, including `Candidate`, `Result` and `Contest`.  Transforms also clean or extract values from the raw data.  A typical update might be parsing candidate names from a single field into name components.
 
-Transforms must be defined and registered in a `{state}/transforms.py` file. They are run in the order that they are registered, so ORDERING IS IMPORTANT.
+Transforms must be defined and registered in a `{state}/transforms.py` file.  Simple transforms can be implemented as functions, but more complex transforms are better implemented as a class.  To implement a class-based transform, create a class that is a subclass of ``openelex.base.transform.Transform``, declare a ``name`` attribute and implement the ``__call__`` method.
 
 {% highlight python %}
-from openelex.base.transform import registry
+from openelex.base.transform import Transform
+
+class CreateCandidates(Transform):
+    name = 'create_candidates'
+
+    def __call__(self):
+        # ...
+{% endhighlight %} 
+
+Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT.
+
+{% highlight python %}
+from openelex.base.transform import registry, Transform
 
 def some_transform():
     # ...
 
 def another_transform():
     # ...
+
+class ClassBasedTransform(Transform):
+    # ...
    
 registry.register('md', some_transform)
 registry.register('md', another_transform)
+registry.register('md', ClassBasedTransform)
 {% endhighlight %}
 
 Also note that you can register validators with a transform. Validators, covered in the next section, are functions that check data after a transformation to ensure the result is correct.
