@@ -8,7 +8,7 @@ permalink: /guide/
 
 Every state presents unique challenges when it comes to data. Some results will require manual clean-up or data entry, steps that are hard to capture in code. Others will be perfectly structured CSVs, ready for any mere mortal to download and use.
 
-![data processing diagram]({{ https://github.com/openelections/ }}/assets/img/DataProcessingDiagram.png)
+![Data Processing Diagram][1]
 
 Whether you're facing a Sisyphean challenge or handling the friendliest of data, the OpenElections team will work with you to bring raw results into our world (a much cleaner, saner world, we hope!).
 
@@ -405,3 +405,6 @@ The OpenElections Crew
 * [Sara Schnadt](https://twitter.com/SaraSchnadt)
 * [Serdar Tumgoren](https://twitter.com/zstumgoren)
 * [Derek Willis](https://twitter.com/derekwillis)
+
+
+	[1]: https://github.com/openelections/docs/blob/master/assets/img/DataProcessingDiagram.png
