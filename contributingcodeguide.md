@@ -8,9 +8,9 @@ permalink: /guide/
 
 Every state presents unique challenges when it comes to data. Some results will require manual clean-up or data entry, steps that are hard to capture in code. Others will be perfectly structured CSVs, ready for any mere mortal to download and use.
 
-![data processing diagram](https://raw.githubusercontent.com/openelections/docs/master/assets/img/DataProcessingDiagram.png)
-
 Whether you're facing a Sisyphean challenge or handling the friendliest of data, the OpenElections team will work with you to bring raw results into our world (a much cleaner, saner world, we hope!).
+
+![data processing diagram](https://raw.githubusercontent.com/openelections/docs/master/assets/img/DataProcessingDiagram.png)
 
 At the 30,000 foot level, here's what our "world" looks like:
 
