@@ -10,6 +10,8 @@ Every state presents unique challenges when it comes to data. Some results will 
 
 Whether you're facing a Sisyphean challenge or handling the friendliest of data, the OpenElections team will work with you to bring raw results into our world (a much cleaner, saner world, we hope!).
 
+![data processing diagram](https://raw.githubusercontent.com/openelections/docs/master/assets/img/DataProcessingDiagram.png)
+
 At the 30,000 foot level, here's what our "world" looks like. We use Python (2.7 for now) to:
 
 1. Acquire raw results data from the state using the metadata we've gathered.
