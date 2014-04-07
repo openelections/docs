@@ -21,6 +21,8 @@
     </style>
     <link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/assets/css/highlight-tomorrow.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/openelex-docs.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -82,7 +84,24 @@
           </div>
         </div>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script>
+    (function(window, $) {
+      // Header hover anchor links
+      // Uses implementation from http://ben.balter.com/2014/03/13/pages-anchor-links/
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fa fa-link"></i>';
+          if (id) {
+            return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    })(window, jQuery);
+    </script>
   </body>
 </html>
