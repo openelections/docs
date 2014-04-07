@@ -14,12 +14,12 @@ Whether you're facing a Sisyphean challenge or handling the friendliest of data,
 
 At the 30,000 foot level, here's what our "world" looks like:
 
-1. Acquire raw results data from the state
-2. Standardize the name of raw data files
-3. Load raw data into our backend data store ([Mongo](http://www.mongodb.org/), if you're wondering)
-4. Standardize results data in a step-by-step fashion, for example, by writing separate bits of code to parse a name into separate fields, to standardize party and office names, etc.
-5. Check data accuracy
-6. Bake out beautifully structured, easy-to-use CSVs and JSON. Mere mortals rejoice!
+1. Acquire raw results data from the state using the metadata we've gathered.
+2. Standardize the name of raw data files.
+3. Load raw data into our backend data store ([Mongo](http://www.mongodb.org/), if you're wondering).
+4. Transform raw results data in a step-by-step fashion, for example, by parsing names into separate fields or standardizing party and office names.
+5. Verify the accuracy of the transformed results data.
+6. Bake out structured, easy-to-use CSV and JSON files that form our public API.
 
 We use Python (2.7 for now) to accomplish most of these tasks.
 
@@ -93,7 +93,7 @@ Our data processing pipeline starts with `datasource.py`, which handles the proc
 
 Like the other parts of the process, a state-specific datasource.py subclasses a `BaseDatasource` that includes some generic functions for the most common tasks. Inside the state-specific datasource.py you'll write functions that handle parts of the process particular to that state: setting up scrapers, handling unusual file paths or a mix of formats.
 
-[Most states involve more than a simple web scrape](archive-standardization). You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry.  More likely, you have a combination of easy-to-use data and older files that are harder to work with. The OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
+[Most states involve more than a simple web scrape](archive-standardization). You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry. More likely, you have a combination of easy-to-use data and older files that are harder to work with. For example, some West Virginia results are stored in PDF files; we convert them to [CSV files](https://github.com/openelections/openelections-data-wv) that match our naming conventions. Whatever the case, the OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
 
 A lot depends on how the results data is organized and stored by the original source. It may come as single spreadsheet files, individual HTML pages or PDF documents. The job for the datasource file is to provide an interface to that data, rename the files using OpenElections conventions and provide some basic political geographic elements. For example, here is the representation of a single results file from Baltimore City for the 2012 primary, mapping it to a OpenElections generated filename:
 
