@@ -20,7 +20,7 @@ Our filename standardization conventions for the “common” case should be dis
 
 The basic format for a generated filename is as follows:
 
-	date__state__{party}__election_type__{special}__{jurisdiction}{office}__{reporting_level}.format
+	date__state__{party}__{special}__election_type__{jurisdiction}{office}__{office_district}__{reporting_level}.format
 
 So, for example:
 
@@ -36,4 +36,4 @@ Not every state has individual files for a jurisdiction, however. Ohio has preci
 
 Or a single file for a special general election for a single office:
 
-	20071211__oh__general__special__house__5.csv
+	20071211__oh__special__general__house__5.csv
