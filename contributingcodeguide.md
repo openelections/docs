@@ -362,11 +362,28 @@ $ invoke bake.state_file --state md --datefilter 2012 --format json
 
 #### Data extraction
 
-Some data sources are just too unwieldy to parse using a fully automated process. Think landscape-oriented, image PDFs with angled header columns and 8-point font.  In such cases, hand-keying data will be the only option, or perhaps a combination of hand-keying and an automated process such as Tabula.
+Some data sources are just too unwieldy to parse using a fully automated process. Think landscape-oriented, image PDFs with angled header columns and 8-point font. In such cases, hand-keying data will be the only option, or perhaps a combination of hand-keying and an automated process such as Tabula.
 
 Any data extraction process that is not fully automated (and integrated into the data processing pipeline) should be documented in a process.md file. The description should be minimal, just enough info to help recreate your process. Think bullet-points for the uninitiated.
 
 If a state requires a manual process, that process is documented in `{state}/process.md`, along with any particular issues you might have come across during the process. These may include results that are incomplete or missing, or results which may require further investigation/follow-up with the source agency.
+
+#### Populating url_paths.csv
+
+States with results that require pre-processing (usually conversion from a PDF to a csv file) or other non-standard processing such as scraping single pages should have a `url_paths.csv` file in the `core/openelex/us/<state>/mappings` directory. Such files help to connect raw files like PDFs to their processed CSV versions, which are stored in state-specific repositories on Github (see [West Virginia](https://github.com/openelections/openelections-data-wv) as an example). As such `url_paths.csv` files contain the following attributes:
+
+  * date (of election)
+  * office (a slugified version of the office name, such as `state_senate` or `governor`)
+  * district
+  * race_type
+  * party (for primary elections)
+  * special (boolean flag)
+  * path (the path from the raw file URI - a full URI is acceptable if the hosts differ)
+  * data_url (optional; the url to the processed CSV in the Github repository - it should begin with https://raw.githubusercontent.com/)
+
+The `data_url` attribute is optional if the files are HTML files that will be scraped and stored as part of the load process. The `datasource.py` file will use the url paths to identify the results files for ingestion. If the state you are working on has PDF results files or multiple systems for handling/publishing results in several formats, you'll need a `url_paths.csv` file.
+
+You can see example files for [West Virginia](https://github.com/openelections/core/blob/dev/openelex/us/wv/mappings/url_paths.csv) and [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv).
 
 #### Corrections
 
