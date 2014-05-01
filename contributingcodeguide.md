@@ -372,12 +372,12 @@ If a state requires a manual process, that process is documented in `{state}/pro
 
 States with results that require pre-processing (usually conversion from a PDF to a csv file) or other non-standard processing such as scraping single pages should have a `url_paths.csv` file in the `core/openelex/us/<state>/mappings` directory. Such files help to connect raw files like PDFs to their processed CSV versions, which are stored in state-specific repositories on Github (see [West Virginia](https://github.com/openelections/openelections-data-wv) as an example). As such `url_paths.csv` files contain the following attributes:
 
-  * date (of election)
+  * date (of election, value should be formatted in the format yyyy-mm-dd)
   * office (a slugified version of the office name, such as `state_senate` or `governor`)
   * district
   * race_type
   * party (for primary elections)
-  * special (boolean flag)
+  * special (boolean flag, value should be formatted as the string "true")
   * path (the path from the raw file URI - a full URI is acceptable if the hosts differ)
   * data_url (optional; the url to the processed CSV in the Github repository - it should begin with https://raw.githubusercontent.com/)
 
