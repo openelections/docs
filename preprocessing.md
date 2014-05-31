@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Preprocessing 
+title: Preprocessing Data 
 permalink: /guide/preprocessing/
 ---
 
