@@ -27,7 +27,7 @@ In many cases, processing the raw data requires Python code.  Processing scripts
 
 An example directory structure for Iowa looks like this:
 
-```
+`
 ├── 20000104__ia__special__general__state_house__53.csv
 ├── 20000606__ia__primary__county.csv
 ├── 20001107__ia__general__precinct.csv
@@ -48,7 +48,7 @@ An example directory structure for Iowa looks like this:
 ├── tests
 │   ├── test_util.py
 
-```
+`
 
 It is important to note that:
 
