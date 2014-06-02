@@ -113,6 +113,8 @@ The best-case scenario is that all election results data for a state is availabl
 
 To help construct these mappings, you should store helper files in a `{state}/mappings` directory. The first is `{state}.csv`, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a `url_paths.csv` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
 
+The [Python API documentation](/guide/python-api/#class-datasource) can tell you which methods need to be implemented in your state's ``Datasource`` class as well as the utility methods available to help implement the class.  There is also an [example class implementation](/guide/python-api/#a-simple-state-datasource-module) for a simple case.
+
 Once you've crafted `datasource.py`, you can query it for information about a state's data sources from the command line.
 
 NOTE: Below code snippets use Maryland as an example.
