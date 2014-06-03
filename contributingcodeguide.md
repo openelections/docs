@@ -395,7 +395,7 @@ This shell command will populate the CSV file with county names and OCD IDs.  Be
 
 {% highlight bash %} 
 export STATE_ABBREV=wa
-wget -qO- https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-us.csv | csvgrep -c id -r "ocd-division/country:us/state:$STATE_ABBREV/county:[^/]*$"  | csvcut -c id,name,census_geoid | sed -e "s/census_geoid/fips/" | sed -e "s/ County,/,/" | sed -e "s/place-//" > us/$STATE_ABBREV/mappings/$STATE_ABBREV.csv
+wget -qO- https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-us.csv | csvgrep -c id -r "ocd-division/country:us/state:$STATE_ABBREV/county:[^/]*$"  | csvcut -c id,name,census_geoid |sed -e "1 s/census_geoid/fips/" | sed -e "1 s/id/ocd_id/" | sed -e "s/ County,/,/" | sed -e "s/place-//" > us/$STATE_ABBREV/mappings/$STATE_ABBREV.csv
 {% endhighlight %}
 
 #### Corrections
