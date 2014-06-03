@@ -370,7 +370,7 @@ Any data extraction process that is not fully automated (and integrated into the
 
 If a state requires a manual process, that process is documented in `{state}/process.md`, along with any particular issues you might have come across during the process. These may include results that are incomplete or missing, or results which may require further investigation/follow-up with the source agency.
 
-#### Populating url_paths.csv
+#### Populating url\_paths.csv
 
 States with results that require pre-processing (usually conversion from a PDF to a csv file) or other non-standard processing such as scraping single pages should have a `url_paths.csv` file in the `core/openelex/us/<state>/mappings` directory. Such files help to connect raw files like PDFs to their processed CSV versions, which are stored in state-specific repositories on Github (see [West Virginia](https://github.com/openelections/openelections-data-wv) as an example). As such `url_paths.csv` files contain the following attributes:
 
@@ -386,6 +386,17 @@ States with results that require pre-processing (usually conversion from a PDF t
 The `data_url` attribute is optional if the files are HTML files that will be scraped and stored as part of the load process. The `datasource.py` file will use the url paths to identify the results files for ingestion. If the state you are working on has PDF results files or multiple systems for handling/publishing results in several formats, you'll need a `url_paths.csv` file.
 
 You can see example files for [West Virginia](https://github.com/openelections/core/blob/dev/openelex/us/wv/mappings/url_paths.csv) and [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv).
+
+#### Populating {state\_abbrev}.csv
+
+The file ``us/{state_abbrev}/mappings/{state_abbrev}.csv`` can be edited to contain the names and Open Civic Data identifiers for a state's different jurisdictions/electoral geographies.  The most common case is the list of counties.  You may need to iterate over the list of counties to build URLs for per-county results files.
+
+This shell command will populate the CSV file with county names and OCD IDs.  Be sure to change the value of ``STATE_ABBREV`` to your state's abbreviation.  This example uses Washington (wa).
+
+{% highlight bash %} 
+export STATE_ABBREV=wa
+wget -qO- https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-us.csv | csvgrep -c id -r "ocd-division/country:us/state:$STATE_ABBREV/county:[^/]*$"  | csvcut -c id,name,census_geoid | sed -e "s/census_geoid/fips/" | sed -e "s/ County,/,/" | sed -e "s/place-//" > us/$STATE_ABBREV/mappings/$STATE_ABBREV.csv
+{% endhighlight %}
 
 #### Corrections
 
