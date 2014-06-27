@@ -29,9 +29,11 @@ for all years.
 
 **Returns:**
 
-A list of dicts, each representing an election and its
-metadata.  The dictionary matches the output of the
-Metadata API (http://docs.openelections.net/metadata-api/).
+A dictionary, keyed by year.  Each value is a list of dictonariess, 
+each representing an election and its metadata for that year.
+
+The election dictionaries match the output of the
+[Metadata API](http://docs.openelections.net/metadata-api/).
 
 The election dictionaries have an additional ``slug`` key that
 can be used as an election identifier.
