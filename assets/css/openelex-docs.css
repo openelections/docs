@@ -26,3 +26,7 @@ h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
 }
+
+[class*=span] {
+    max-width: 100%;
+}
