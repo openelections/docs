@@ -108,6 +108,10 @@ Results tabulated by state legislative district for a state-wide or federal race
 
 A state legislature is a generic term referring to the legislative body of any of the country's 50 states. The formal name varies from state to state. In 25 states, the legislature is simply called the Legislature, or the State Legislature, while in 19 states, the legislature is called the "General Assembly". In Massachusetts and New Hampshire, the legislature is called the General Court, while North Dakota and Oregon designate the legislature as the Legislative Assembly. Most states have two chambers, but Nebraska has just one.
 
+####  Straight Party or Straight Ticket Votes
+
+The number of ballots cast where every vote was for the same party.  This is provided in some states' results files.
+
 #### U.S. House
 
 The United States House of Representatives is one of the two houses of the United States Congress (a bicameral legislature). It is frequently referred to as the House. The other chamber is the Senate.
