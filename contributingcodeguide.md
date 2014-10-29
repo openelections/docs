@@ -46,9 +46,9 @@ Before you can do any coding, you have to [bootstrap your environment](https://g
 
 #### Overview
 
-OpenElections uses [invoke](http://docs.pyinvoke.org/en/latest/), a task execution framework, to manage the data processing pipeline. You don't have to write any invoke tasks of your own, but you can use invoke to make local development easier and help us process the data you've gathered.
+OpenElections provides a management command, ``openelex``, to manage the data processing pipeline. You don't have to write any subcommands of your own, but you can use the management command to make local development easier and help us process the data you've gathered.
 
-`invoke` provides command-line tasks to:
+`openelex` provides command-line tasks to:
 
 * Inspect data source urls and associated metadata
 * Download raw data and save it locally under a standardized file name
@@ -58,33 +58,24 @@ OpenElections uses [invoke](http://docs.pyinvoke.org/en/latest/), a task executi
 * Run validations to ensure data integrity
 * Bake standardized results out to CSVs and JSON
 
-The OpenElections team will help you wire up your code so that it "just works" using the invoke framework.
+The OpenElections team will help you wire up your code so that it "just works" using the framework.
 
 Here's a quick primer on how to get started.
 
 Pre-flight check:
 
 * Have you [bootstrapped your environment](https://github.com/openelections/core)?
-* Have you navigated on the command line to the root of the `core` repository?
 
-**Note**: you can only use invoke tasks from the root of the repository. Errors will be thrown if you try to use invoke from outside this directory, or from a subdirectory.
-
-You can learn more about available invoke tasks by dropping to the command line:
+You can learn more about available subcommands by dropping to the command line:
 
 {% highlight bash %}
-$ invoke --help
-{% endhighlight %}
-
-List available invoke tasks.
-
-{% highlight bash %}
-$ invoke --list
+$ openelex --help
 {% endhighlight %}
 
 View help for a specific task.
 
 {% highlight bash %}
-$ invoke --help cache.clear
+$ openelex cache.clear --help
 {% endhighlight %}
 
 #### Datasource
@@ -122,19 +113,19 @@ NOTE: Below code snippets use Maryland as an example.
 List election metadata for all years (from our [Metadata API](http://blog.openelections.net/2013/10/23/an-improved-metadata-api/); warning: output is very verbose).
 
 {% highlight bash %}
-$ invoke datasource.elections --state md
+$ openelex datasource.elections --state md
 {% endhighlight %}
 
 List metadata for one year.
 
 {% highlight bash %}
-$ invoke datasource.elections --state md --datefilter 2012
+$ openelex datasource.elections --state md --datefilter 2012
 {% endhighlight %}
 
 List urls for raw data sources.
 
 {% highlight bash %}
-$ invoke datasource.target_urls --state md --datefilter 2012
+$ openelex datasource.target_urls --state md --datefilter 2012
 {% endhighlight %}
 
 List the mapping between raw data source urls and standardized file names (saved to the local cache).
@@ -142,13 +133,13 @@ List the mapping between raw data source urls and standardized file names (saved
 List all years.
 
 {% highlight bash %}
-$ invoke datasource.filename_url_pairs --state md
+$ openelex datasource.filename_url_pairs --state md
 {% endhighlight %}
 
 List one year.
 
 {% highlight bash %}
-$ invoke datasource.filename_url_pairs --state md --datefilter 2012
+$ openelex datasource.filename_url_pairs --state md --datefilter 2012
 {% endhighlight %}
 
 And most importantly, the datasource.mappings task provides a year-by-year breakdown of metadata (raw url, standardized file name, OCD ID, and election ID). These bits of metadata are critical to the subsequent data loading step. The [OCD_ID](https://github.com/opencivicdata/ocd-division-ids) is a standardized way to refer to specific political geographies (states, counties, congressional districts, etc.) that makes it easier for OpenElections data to be shared across projects.
@@ -156,13 +147,13 @@ And most importantly, the datasource.mappings task provides a year-by-year break
 List all mappings for state.
 
 {% highlight bash %}
-$ invoke datasource.mappings --state md
+$ openelex datasource.mappings --state md
 {% endhighlight %}
 
 List mappings for one year.
 
 {% highlight bash %}
-$ invoke datasource.mappings --state md --datefilter 2012
+$ openelex datasource.mappings --state md --datefilter 2012
 {% endhighlight %}
 
 #### Fetch/Cache
@@ -174,25 +165,25 @@ We use the useful `requests` library to make HTTP requests and `BeautifulSoup` f
 Download all files for the state.
 
 {% highlight bash %}
-$ invoke fetch --state md
+$ openelex fetch --state md
 {% endhighlight %}
 
 Download files for one year.
 
 {% highlight bash %}
-$ invoke fetch --state md --datefilter 2012
+$ openelex fetch --state md --datefilter 2012
 {% endhighlight %}
 
 List the contents of your local cache.
 
 {% highlight bash %}
-$ invoke cache.files --state md
+$ openelex cache.files --state md
 {% endhighlight %}
 
 List cached files for one year.
 
 {% highlight bash %}
-$ invoke cache.files --state md --datefilter 2012
+$ openelex cache.files --state md --datefilter 2012
 {% endhighlight %}
 
 #### Load
@@ -212,13 +203,13 @@ Once you've implemented the `load` module for your state, the `load` task import
 Load all raw results from files in local cache to the database.
 
 {% highlight bash %}
-$ invoke load.run --state md
+$ openelex load.run --state md
 {% endhighlight %}
 
 Load results for one year.
 
 {% highlight bash %}
-$ invoke load.run --state md --datefilter 2012
+$ openelex load.run --state md --datefilter 2012
 {% endhighlight %}
 
 #### Transform
@@ -274,7 +265,7 @@ Once you've implemented and registered transforms for your state, the `transform
 List available transforms for state.
 
 {% highlight bash %}
-$ invoke transform.list --state md
+$ openelex transform.list --state md
 {% endhighlight %}
 
 MD transforms, in order of execution:
@@ -287,19 +278,19 @@ You can select one or more transforms to run using the *--include* flag with a c
 Run all transforms for state.
 
 {% highlight bash %}
-$ invoke transform.run --state md
+$ openelex transform.run --state md
 {% endhighlight %}
 
 Only run name parsing transform.
 
 {% highlight bash %}
-$ invoke transform.run --state md --include parse_candidate_names
+$ openelex transform.run --state md --include parse_candidate_names
 {% endhighlight %}
 
 Run all transforms except name parsing.
 
 {% highlight bash %}
-$ invoke transform.run --state md --exclude parse_candidte_names
+$ openelex transform.run --state md --exclude parse_candidte_names
 {% endhighlight %}
 
 #### Validate
@@ -313,25 +304,25 @@ Similar to transformations, you can include/exclude validations.
 List available validations.
 
 {% highlight bash %}
-$ invoke validate.list --state md
+$ openelex validate.list --state md
 {% endhighlight %}
 
 Run all validations for a state.
 
 {% highlight bash %}
-$ invoke validate.run --state md
+$ openelex validate.run --state md
 {% endhighlight %}
 
 Only run validate_unique_contests.
 
 {% highlight bash %}
-$ invoke validate.run --state md --include validate_unique_contests
+$ openelex validate.run --state md --include validate_unique_contests
 {% endhighlight %}
 
 Run all validations except for validate_unique_contests.
 
 {% highlight bash %}
-$ invoke validate.run --state md --exclude validate_unique_contests
+$ openelex validate.run --state md --exclude validate_unique_contests
 {% endhighlight %}
 
 #### Bake
@@ -341,25 +332,25 @@ This is the long-awaited final step, where we bake out raw results after applyin
 Bake all results for a state.
 
 {% highlight bash %}
-$ invoke bake.state_file --state md
+$ openelex bake.state_file --state md
 {% endhighlight %}
 
 Bake results for one year.
 
 {% highlight bash %}
-$ invoke bake.state_file --state md --datefilter 2012
+$ openelex bake.state_file --state md --datefilter 2012
 {% endhighlight %}
 
 Bake results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
 
 {% highlight bash %}
-$ invoke bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
+$ openelex bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
 {% endhighlight %}
 
 Bake results to a JSON file instead of CSV.
 
 {% highlight bash %}
-$ invoke bake.state_file --state md --datefilter 2012 --format json
+$ openelex bake.state_file --state md --datefilter 2012 --format json
 {% endhighlight %}
 
 ## Manual Processes
@@ -420,7 +411,7 @@ As you encounter new offices or political parties in your state data, you should
 The updated data  can be loaded into the database using the `load_metadata.run` task.  For example, to load new offices, use the command:
 
 {% highlight bash %}
-$ invoke load_metadata.run --collection=office
+$ openelex load_metadata.run --collection=office
 {% endhighlight %}
 
 ## En Fin
@@ -437,6 +428,3 @@ The OpenElections Crew
 * [Sara Schnadt](https://twitter.com/SaraSchnadt)
 * [Serdar Tumgoren](https://twitter.com/zstumgoren)
 * [Derek Willis](https://twitter.com/derekwillis)
-
-
-
