@@ -329,28 +329,80 @@ $ openelex validate.run --state md --exclude validate_unique_contests
 
 This is the long-awaited final step, where we bake out raw results after applying transforms (and validations, of course!) into flat files using one or more user-friendly formats. Regardless of format, results should conform to our [standardized results spec](https://github.com/openelections/specs/wiki/Results-Data-Spec-Version-2).
 
-Bake all results for a state.
+You'll most likely want to use the ``bake.election_file`` command to export results with one file for each reporting level in an election.  You can also use ``bake.state_file`` if you want to bake a single file with all of a state's results or all of a state's results for a single year rather than per-election.
+
+Both commands take these parameters:
+
+* state - Required. Abbreviation of the state whose results you want to export.
+* fmt - Format of exported results.  The value can be either ``csv`` (the default) or ``json``. 
+* electiontype - Only export results from elections of this type.  Value can be ``primary`` or ``general``.  The default is to export results from all types of elections.
+* raw - If set, export raw results instead of transformed results.  Raw results have a standard schema but have unprocessed values straight from the raw data files.  Default is to bake transformed results.
+* outputdir - The directory where result files will be created.  This defaults to the ``us/bakery`` subdirectory.
+* level - Only export results for this reporting level.  The default is to export results for all reporting levels.
+* datefilter - Only export results from elections from a certain day or year.  This value must be specified in 'YYYY' or 'YYYY-MM-DD' format.  The default is to export results from all elections.
+
+Export results for a state with one file for each reporting level in an election.  This is the command used to generate the downloadable results that we publish.
+
+{% highlight bash %}
+$ openelex bake.election_file --state md
+{% endhighlight %}
+
+Export county-level results for Maryland's 2012 general election election. 
+
+{% highlight bash %}
+$ openelex bake.election_file --state md --datefilter '2012-11-06' --level county
+{% endhighlight %}
+
+Export all results for a state into a single file.
 
 {% highlight bash %}
 $ openelex bake.state_file --state md
 {% endhighlight %}
 
-Bake results for one year.
+Export results for one year.
 
 {% highlight bash %}
 $ openelex bake.state_file --state md --datefilter 2012
 {% endhighlight %}
 
-Bake results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
+Export results to a specific directory.  The default is OPENELEX_ROOT/us/bakery/.
 
 {% highlight bash %}
 $ openelex bake.state_file --state md  --datefilter 2012 --outputdir ~/data/
 {% endhighlight %}
 
-Bake results to a JSON file instead of CSV.
+Export results to a JSON file instead of CSV.
 
 {% highlight bash %}
 $ openelex bake.state_file --state md --datefilter 2012 --format json
+{% endhighlight %}
+
+#### Publish 
+
+This step is only relevent to core contributors with write permissions to repositories in the [openelections organization](https://github.com/openelections/) on GitHub.
+
+Before you publish results:
+
+1. Create a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use) that will be used to authenticate to GitHub.
+2. Set the ``GITHUB_USERNAME`` and ``GITHUB_ACCESS_TOKEN`` variables in your settings module.
+3. Create a repository named ``openelections-results-STATE_ABBREV`` to store the results for this state.
+
+Publish transformed results for Maryland.
+
+{% highlight bash %}
+$ openelex publish --state md --datefilter 2012 --format json
+{% endhighlight %}
+
+Publish raw results for Maryland.
+
+{% highlight bash %}
+$ openelex publish --state md --raw
+{% endhighlight %}
+
+Publish raw results for 2012 Maryland elections.
+
+{% highlight bash %}
+$ openelex publish --state md --raw --datefilter 2012
 {% endhighlight %}
 
 ## Manual Processes
