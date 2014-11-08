@@ -30,3 +30,10 @@ h6:hover .header-link {
 [class*=span] {
     max-width: 100%;
 }
+
+/* Give more space to paragraphs following tables.
+ * This is particularly important in the Cookbook section.
+ */ 
+table + p { 
+  margin-top: 20px;
+}
