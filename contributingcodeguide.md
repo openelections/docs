@@ -40,7 +40,7 @@ As a contributor, we appreciate any part of the data process you can help us wit
 
 ## Bootstrapping
 
-Before you can do any coding, you have to [bootstrap your environment](https://github.com/openelections/core). Once that's done, you're ready to start feeding data into our pipeline.
+Before you can do any coding, you have to [bootstrap your environment](https://github.com/openelections/openelections-core). Once that's done, you're ready to start feeding data into our pipeline.
 
 ## Data Pipeline
 
@@ -64,7 +64,7 @@ Here's a quick primer on how to get started.
 
 Pre-flight check:
 
-* Have you [bootstrapped your environment](https://github.com/openelections/core)?
+* Have you [bootstrapped your environment](https://github.com/openelections/openelections-core)?
 
 You can learn more about available subcommands by dropping to the command line:
 
@@ -102,7 +102,7 @@ Ideally, the generated files correspond directly to the original source files so
 
 The best-case scenario is that all election results data for a state is available in the same file format, which means that you'd likely only need a small handful of functions to create the mappings. At the other end of the spectrum are states that use a combination of formats and naming conventions over time.
 
-To help construct these mappings, you should store helper files in a `{state}/mappings` directory. The first is `{state}.csv`, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a `url_paths.csv` file can be used (see [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
+To help construct these mappings, you should store helper files in a `{state}/mappings` directory. The first is `{state}.csv`, which lists political jurisdictions (usually counties, but can also include cities and other types of divisions that are reporting levels) and connects them to the [OCD_ID](https://github.com/opencivicdata/ocd-division-ids). In states where it is necessary to directly map URLs to `generated_name`, a `url_paths.csv` file can be used (see [Ohio](https://github.com/openelections/openelections-core/blob/dev/openelex/us/oh/mappings/url_paths.csv) for an example).
 
 The [Python API documentation](/guide/python-api/#class-datasource) can tell you which methods need to be implemented in your state's ``Datasource`` class as well as the utility methods available to help implement the class.  There is also an [example class implementation](/guide/python-api/#a-simple-state-datasource-module) for a simple case.
 
@@ -430,7 +430,7 @@ States with results that require pre-processing (usually conversion from a PDF t
 
 The `data_url` attribute is optional if the files are HTML files that will be scraped and stored as part of the load process. The `datasource.py` file will use the url paths to identify the results files for ingestion. If the state you are working on has PDF results files or multiple systems for handling/publishing results in several formats, you'll need a `url_paths.csv` file.
 
-You can see example files for [West Virginia](https://github.com/openelections/core/blob/dev/openelex/us/wv/mappings/url_paths.csv) and [Ohio](https://github.com/openelections/core/blob/dev/openelex/us/oh/mappings/url_paths.csv).
+You can see example files for [West Virginia](https://github.com/openelections/openelections-core/blob/dev/openelex/us/wv/mappings/url_paths.csv) and [Ohio](https://github.com/openelections/openelections-core/blob/dev/openelex/us/oh/mappings/url_paths.csv).
 
 #### Populating {state\_abbrev}.csv
 
