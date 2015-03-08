@@ -12,7 +12,7 @@ In these cases, the data needs to be converted to CSV and placed in a separate r
 
 Examples of states with data repositories include:
 
-* [Mississippi](http://github.com/openlections/openelections-data-ms)
+* [Mississippi](http://github.com/openelections/openelections-data-ms)
 * [Arkansas](http://github.com/openelections/openelections-data-ar)
 
 ## Data repositories
