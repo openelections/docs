@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Preprocessing Data 
+title: Preprocessing Data
 permalink: /guide/preprocessing/
 ---
 
@@ -19,11 +19,15 @@ Examples of states with data repositories include:
 
 Repositories of preprocessed data should be named ``openelections-data-{state_abbreviation}``.  For example, Mississippi's repository is named ``openelections-data-ms``.
 
-## Supporting code 
+## Data entry
 
-In many cases, processing the raw data requires Python code.  Processing scripts should be placed in a ``bin`` directory and any common supporting code should go in a packaged named ``openelexdata.us.{state_abbreviation}}``.
+For those records that have to be manually typed in, each state data repository will contain instructions for doing so and a sample CSV template with a header row and, where necessary, sample data. CSV files should follow the [generated filename standards](http://docs.openelections.net/archive-standardization/) for the project, and be placed year-specific folders in the state's data repository.
 
-### Example
+## Supporting code
+
+In many cases, scraping and processing the raw data requires Python code.  Processing scripts should be placed in a ``bin`` directory and any common supporting code should go in a packaged named ``openelexdata.us.{state_abbreviation}}``, but we're happy to accept one-off scrapers and the output. We prefer Python, but are most concerned about the quality of the data, so if Ruby or Node is more your thing, contact us on [Github](https://github.com/openelections), [Twitter](https://twitter.com/openelex) or by email at openelections@gmail.com and we'll figure it out.
+
+### Example of Python code structure
 
 An example directory structure for Iowa looks like this:
 
