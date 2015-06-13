@@ -37,3 +37,18 @@ Not every state has individual files for a jurisdiction, however. Ohio has preci
 Or a single file for a special general election for a single office:
 
 	20071211__oh__special__general__house__5.csv
+
+### Office Names
+
+OpenElections focuses on federal and state offices, including state legislators. When pre-processing data or doing data entry, use the following office names:
+
+* President
+* U.S. Senate
+* U.S. House
+* Governor
+* Attorney General
+* Secretary of State
+* State Senate
+* State House
+
+Other office titles that are specific to states should be consistent within that state; if the state has previous data, check that.
