@@ -6,9 +6,6 @@ permalink: /guide/converting
 
 ## Converting Raw Results to Data
 
-
-## Preprocessing results
-
 Some states provide results data in a way that is not easily loaded using the data pipleline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publically accessible and may have been obtained on physical media or by email.
 
 In these cases, the data needs to be converted to CSV and placed in a separate repository that is accessible over HTTP.  Thes [datasource](/guide/#datasource) should be implemented so that it points to the files in the repository.
@@ -23,6 +20,10 @@ Examples of states with data repositories include:
 The inputs to this task are usually PDFs and sometimes database files provided by state-level and county-level officials (i.e. county clerks).
 
 The outputs to this task are CSVs whose rows look like this: `county,precinct,office,district,candidate,party,votes`
+
+## Where to get PDFs to convert
+
+You should look through [the OpenElections github](https://github.com/openelections) for repos with names that start with `openelections-data`. We're working on writing issues that have easy PDFs for everyone to take on.
 
 ## How to complete this task
 
