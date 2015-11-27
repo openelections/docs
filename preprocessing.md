@@ -23,7 +23,19 @@ Preprocessed results go into state-specific data repositories, which is where yo
 
 ## Examples of preprocessing tasks
 
-Take [Oregon's 2008 general election county-level results](http://sos.oregon.gov/elections/Documents/results/results-11-2008.pdf), which are in an electronic PDF. Using Tabula or xPDF, we can manually extract the tabular data inside, copy it to a spreadsheet and convert it to a CSV file using OpenElections' conventions: the result is [here](https://github.com/openelections/openelections-data-or/blob/master/2008/20081104__or__general.csv). A similar approach could be used for a fixed-width text file using a text editor. Tasks involving pre-processing of electronic PDFs often are tagged with our `easy task` label ([here](https://github.com/openelections/openelections-data-or/labels/easy%20task), for Oregon).
+Take [Oregon's 2008 general election county-level results](http://sos.oregon.gov/elections/Documents/results/results-11-2008.pdf), which are in an electronic PDF. Using Tabula or xPDF, we can manually extract the tabular data inside, copy it to a spreadsheet and convert it to a CSV file using OpenElections' conventions: the result is [here](https://github.com/openelections/openelections-data-or/blob/master/2008/20081104__or__general.csv). Here are the steps, using Tabula (and assuming you have it installed and running):
+
+1. Save the PDF file to your desktop or downloads folder.
+2. Using [Tabula's browser interface](http://127.0.0.1:34555/), import the PDF file.
+3. Using Tabula's interface, draw a box around each table of results (it's best to draw one race at a time).
+4. Copy the extracted data and paste it into a spreadsheet.
+5. Re-arrange the data to fit our format of one candidate result per row.
+6. Add other columns (county, office, district) as needed.
+7. Repeat for all federal and state offices. Save often.
+
+Tasks involving pre-processing of electronic PDFs often are tagged with our `easy task` label ([here](https://github.com/openelections/openelections-data-or/labels/easy%20task), for Oregon).
+
+A similar approach could be used for a fixed-width text file using a text editor, although in that case most of the parsing would be done in the text editor.
 
 Another approach could use a programming language (preferably Python) to read and parse a text or HTML results file and create a CSV file. An example is the [Python parser for results in Josephine County, Oregon](https://github.com/openelections/openelections-data-or/blob/master/josephine_parser.py).
 
