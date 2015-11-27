@@ -4,9 +4,7 @@ title: Getting Involved
 permalink: /getting-involved/
 ---
 
-## Getting Involved  – The Nitty Gritty
-
-### How to Help OpenElections
+## Gathering Metadata
 
 Election data is hard. We need your help to make it easy. And free (as in speech and beer).
 
@@ -14,7 +12,7 @@ The OpenElections Project is a nationwide effort to gather election results for 
 
 But first we need the data. That's where you come in.
 
-The first phase of OpenElections is about getting the lay of the land. For each state, we want you to look beyond what's posted on election agency websites and identify the best available data sources. By developing relationships with election agencies and other organizations and experts, you'll help us identify the best sources of results for your state.
+For each state, we want you to look beyond what's posted on election agency websites and identify the best available data sources. By developing relationships with election agencies and other organizations and experts, you'll help us identify the best sources of results for your state.
 
 Gathering metadata – the data about the data – from those sources sets the stage for the second phase: collecting election results. Whether you're a student, a journalist, a developer or a civic-minded retiree, we want your help with getting the data. To contribute, you can adopt a state, gather some metadata about its elections and submit CSVs that meet our data spec.
 
@@ -36,7 +34,7 @@ There could be a rich, clean database of results lurking behind those spreadshee
 
 We've created a data hub admin site that lets you track conversations with data sources and their offerings. In most cases, you'll start with the official state agency that handles elections.
 
-Once you've identified the best source of data, tell us about it in the admin.
+Once you've identified the best source of data, tell us about it on our admin site.
 
 ### The Metadata Process
 
