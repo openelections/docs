@@ -27,6 +27,12 @@ Take [Oregon's 2008 general election county-level results](http://sos.oregon.gov
 
 Another approach could use a programming language (preferably Python) to read and parse a text or HTML results file and create a CSV file. An example is the [Python parser for results in Josephine County, Oregon](https://github.com/openelections/openelections-data-or/blob/master/josephine_parser.py).
 
+## Using OCR
+
+For image-based PDF files ([here's an example](https://github.com/openelections/openelections-sources-or/blob/master/Lincoln/G1172000.PDF) from Lincoln County, Oregon), performing OCR can make it possible to avoid data entry and parse the results as data. There are several options for OCR, but they usually require purchasing software. If you have the professional version of Acrobat, able2Extract or similar software, you can take PDF files and do OCR on their contents. If you don't have access to any of those, please contact us at openelections@gmail.com and we can figure out a way to make it work.
+
+Because OCR is a tricky process that isn't always accurate, you'll need to review the results to ensure that they are correct - in particular, check rows in which the votes are 0 or contain 5, 6 or 8.
+
 ## Supporting code
 
 In some cases, scraping and processing the raw data requires Python code.  Processing scripts should be placed in a ``bin`` directory and any common supporting code should go in a packaged named ``openelexdata.us.{state_abbreviation}}``, but we're happy to accept one-off scrapers and the output. We prefer Python, but are most concerned about the quality of the data, so if Ruby or Node is more your thing, contact us on [Github](https://github.com/openelections), [Twitter](https://twitter.com/openelex) or by email at openelections@gmail.com and we'll figure it out.
