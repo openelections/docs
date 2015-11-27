@@ -13,7 +13,7 @@ In these cases, the data needs to be converted to CSV and placed in a separate r
 Examples of states with data repositories include:
 
 * [Mississippi](http://github.com/openelections/openelections-data-ms)
-* [Arkansas](http://github.com/openelections/openelections-data-ar)
+* [Oregon](http://github.com/openelections/openelections-data-or)
 
 ## Data repositories
 
@@ -21,7 +21,7 @@ Repositories of preprocessed data should be named ``openelections-data-{state_ab
 
 ## Data entry
 
-For those records that have to be manually typed in, each state data repository will contain instructions for doing so and a sample CSV template with a header row and, where necessary, sample data. CSV files should follow the [generated filename standards](http://docs.openelections.net/archive-standardization/) for the project, and be placed year-specific folders in the state's data repository.
+For those records that have to be manually typed in, see our [data entry](http://docs.openelections.net/data-entry/) page.
 
 ## Supporting code
 

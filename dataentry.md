@@ -30,7 +30,8 @@ For elections in which two candidates advance to a runoff, both candidates are m
 
 ### Data Entry Guidelines
 
-* We're only interested in federal, statewide and state legislative offices; no local offices. Our office titles are: President, U.S. Senate, U.S. House, Governor (and other statewide officers), State Senate and State House.
+* We're only interested in federal, statewide and state legislative offices; no local offices.
+* Our office titles are: President, U.S. Senate, U.S. House, Governor (and other statewide officers), State Senate and State House (see more details [here](http://docs.openelections.net/archive-standardization/)).
 * Don't include "County" in the county name.
 * Don't include "Precinct" in the name of the precinct.
 * For precincts with numbers in the name, remove any leading zeros (005 becomes 5).
