@@ -16,7 +16,7 @@ Look in `openelections-{state}-data` repositories for Github issues labeled as "
 
 For PDFs that are electronic (that you could copy and paste results from), there are several options for turning the results into CSV files. We recommend using [Tabula](http://tabula.technology/) to extract tables from electronic PDFs, and we have a short video that shows how we use it:
 
-[Using Tabula for Extracting Data from PDFs](https://www.youtube.com/watch?v=of9680dgqIc)
+[![Using Tabula for Extracting Data from PDFs](http://img.youtube.com/vi/of9680dgqIc/0.jpg)](https://www.youtube.com/watch?v=of9680dgqIc)
 
 You could also use PDF readers that can extract text, or the command-line tool [xPDF](http://www.foolabs.com/xpdf/) if you're comfortable with the command line. You can automate as little or as much of the process as you want; if copying extracted text into a spreadsheet and then arranging it is what you are able to do, that's great.
 
