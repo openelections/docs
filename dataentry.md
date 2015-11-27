@@ -45,3 +45,9 @@ For elections in which two candidates advance to a runoff, both candidates are m
 5. Enter the candidate name just as it appears.
 6. Save the file as a CSV file using our [naming conventions](http://docs.openelections.net/archive-standardization/). If you're not sure what to name it, give it the most descriptive and logical name you can and we'll figure it out.
 7. Email us the file at openelections@gmail.com or, if you know Git, fork the `openelections-data-{state abbrev}` repository for the state you're working on and create a pull request.
+
+### Where to Start
+
+We have data entry tasks in the following states:
+
+* [Oregon](https://github.com/openelections/openelections-data-or/labels/data%20entry)
