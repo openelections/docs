@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Volunteering
-permalink: /guide/volunteering/
+permalink: /volunteering/
 ---
 
 ## Who Volunteers with OpenElections?
@@ -24,4 +24,11 @@ Pete has helped convert result PDFs from Oregon into [CSV files](https://github.
 
 Eric [converted](https://github.com/EricLagergren/openelections-data-wa) a database of election results from Washington into CSV files that fit our needs. Using command-line tools and Python, he wrote software that parsed the database dump and output files that we can load into our processing pipeline. If you know Python and are interested in automating complex processes, [you can make a big contribution](mailto:openelections@gmail.com). (If you don't know Python but are still interested, email us anyway.)
 
-## Who
+## Volunteer FAQ
+
+* Do I have to know anything about elections?
+  * No. It wouldn't hurt, but we can teach you what you need to know.
+* Do I need to know how to use Python? Git?
+  * No. You can still make valuable contributions to our project.
+* Can students help OpenElections?
+  * Absolutely! Working on election data is a great way to learn about the process. Professors interested in working with our data or having students contribute: let's talk.
