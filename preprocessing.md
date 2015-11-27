@@ -6,26 +6,30 @@ permalink: /guide/preprocessing/
 
 ## Preprocessing results
 
-Some states provide results data in a way that is not easily loaded using the data pipleline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publically accessible and may have been obtained on physical media or by email.
+Some states provide results data in a way that is not easily loaded using the data pipleline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publicly accessible and may have been obtained on physical media or by email.
 
-In these cases, the data needs to be converted to CSV and placed in a separate repository that is accessible over HTTP.  Thes [datasource](/guide/#datasource) should be implemented so that it points to the files in the repository.
+In these cases, the data needs to be converted to CSV and placed in a separate repository that is accessible over HTTP. This could be done in a variety of ways, from one-off scripts to more customizable libraries that can handle multiple results files. You might need to perform [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) on images of results before converting them to CSV files. (For those records that have to be manually typed in, see our [data entry](http://docs.openelections.net/data-entry/) page.)
 
-Examples of states with data repositories include:
-
-* [Mississippi](http://github.com/openelections/openelections-data-ms)
-* [Oregon](http://github.com/openelections/openelections-data-or)
+This is very important work because many states don't keep their results in a single format, which means converting a state's results into a single format (CSV) is crucial to our efforts.
 
 ## Data repositories
 
 Repositories of preprocessed data should be named ``openelections-data-{state_abbreviation}``.  For example, Mississippi's repository is named ``openelections-data-ms``.
 
-## Data entry
+Preprocessed results go into state-specific data repositories, which is where you'll find tasks to work on. Some examples of state data repositories include:
 
-For those records that have to be manually typed in, see our [data entry](http://docs.openelections.net/data-entry/) page.
+* [Mississippi](http://github.com/openelections/openelections-data-ms)
+* [Oregon](http://github.com/openelections/openelections-data-or)
+
+## Examples of preprocessing tasks
+
+Take [Oregon's 2008 general election county-level results](http://sos.oregon.gov/elections/Documents/results/results-11-2008.pdf), which are in an electronic PDF. Using Tabula or xPDF, we can manually extract the tabular data inside, copy it to a spreadsheet and convert it to a CSV file using OpenElections' conventions: the result is [here](https://github.com/openelections/openelections-data-or/blob/master/2008/20081104__or__general.csv). A similar approach could be used for a fixed-width text file using a text editor. Tasks involving pre-processing of electronic PDFs often are tagged with our `easy task` label ([here](https://github.com/openelections/openelections-data-or/labels/easy%20task), for Oregon).
+
+Another approach could use a programming language (preferably Python) to read and parse a text or HTML results file and create a CSV file. An example is the [Python parser for results in Josephine County, Oregon](https://github.com/openelections/openelections-data-or/blob/master/josephine_parser.py).
 
 ## Supporting code
 
-In many cases, scraping and processing the raw data requires Python code.  Processing scripts should be placed in a ``bin`` directory and any common supporting code should go in a packaged named ``openelexdata.us.{state_abbreviation}}``, but we're happy to accept one-off scrapers and the output. We prefer Python, but are most concerned about the quality of the data, so if Ruby or Node is more your thing, contact us on [Github](https://github.com/openelections), [Twitter](https://twitter.com/openelex) or by email at openelections@gmail.com and we'll figure it out.
+In some cases, scraping and processing the raw data requires Python code.  Processing scripts should be placed in a ``bin`` directory and any common supporting code should go in a packaged named ``openelexdata.us.{state_abbreviation}}``, but we're happy to accept one-off scrapers and the output. We prefer Python, but are most concerned about the quality of the data, so if Ruby or Node is more your thing, contact us on [Github](https://github.com/openelections), [Twitter](https://twitter.com/openelex) or by email at openelections@gmail.com and we'll figure it out.
 
 ### Example of Python code structure
 

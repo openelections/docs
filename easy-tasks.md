@@ -8,6 +8,8 @@ permalink: /easy-tasks/
 
 We know that as a volunteer, your time is a gift to us. We want to make it easy for you to contribute in ways large and small. Got 10 minutes to do some data entry? Great! Maybe you can write a one-off scraper? We'll take it. Adopt an entire state? Awesome. We love any and all contributors.
 
+Here is why easy tasks are important - we need to collect election results from all 50 states (plus D.C.!) and that process can't be fully automated. Volunteers completing easy tasks make it easier for us to focus on solving more complex issues and fill in crucial gaps in our data.
+
 ### Quick and Easy Ways to Help OpenElections
 
 Look in `openelections-{state}-data` repositories for Github issues labeled as "easy task" - these are small jobs that could involve data entry, a quick scrape or conversion from a PDF file. Here is an example from [Mississippi](https://github.com/openelections/openelections-data-ms/labels/easy%20task) and here are others from [Ohio](https://github.com/openelections/openelections-data-oh/labels/easy%20task).
