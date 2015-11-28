@@ -22,9 +22,13 @@ For PDFs that are electronic (that you could copy and paste results from), there
 
 You could also use PDF readers that can extract text, or the command-line tool [xPDF](http://www.foolabs.com/xpdf/) if you're comfortable with the command line. You can automate as little or as much of the process as you want; if copying extracted text into a spreadsheet and then arranging it is what you are able to do, that's great.
 
+### Turning HTML into CSVs
+
+Web pages that have tables in them can be even easier to work with - in most cases you can copy the table directly into a spreadsheet and then re-arrange the data to fit our layout. Don't worry about formatting - saving the file as a CSV removes any text formatting.
+
 ### Getting Started
 
-We have PDF extraction tasks in the following states:
+We have PDF extraction or HTML conversion tasks in the following states:
 
 * [Mississippi](https://github.com/openelections/openelections-data-ms/issues)
 * [D.C.](https://github.com/openelections/openelections-data-dc/labels/easy%20task)
