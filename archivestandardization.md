@@ -14,7 +14,7 @@ The goal is to archive the raw version of data that seeds our data processing pi
 * Database dumps
 * Manually keyed data
 
-The datasource.py for each state provides the link between raw data and year-by-year breakdowns of that data, regardless of its original form. This might mean, for example, that in the case of a single large database dump, we pre-process the dump and store yearly files on S3 in addition to the raw dump; or if we outsource to MechanicalTurk, we chunk out the processing in a similar year-by-year fashion that datasource.py can interface with.
+The datasource.py for each state provides the link between raw data and year-by-year breakdowns of that data, regardless of its original form. This might mean, for example, that in the case of a single large database dump, we pre-process the dump and store yearly files on Github in addition to the raw dump; or if we outsource to MechanicalTurk, we chunk out the processing in a similar year-by-year fashion that datasource.py can interface with.
 
 Our filename standardization conventions for the “common” case should be distilled from [Github](https://github.com/openelections/openelections-core/issues/5) for reference.
 
