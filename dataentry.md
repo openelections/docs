@@ -52,3 +52,4 @@ For elections in which two candidates advance to a runoff, both candidates are m
 We have data entry tasks in the following states:
 
 * [Oregon](https://github.com/openelections/openelections-data-or/labels/data%20entry)
+* [Mississippi](https://github.com/openelections/openelections-data-ms/labels/data%20entry)
