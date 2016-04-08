@@ -30,6 +30,8 @@ Web pages that have tables in them can be even easier to work with - in most cas
 
 We have PDF extraction or HTML conversion tasks in the following states:
 
+* [New Jersey](https://github.com/openelections/openelections-data-nj/issues)
+* [South Carolina](https://github.com/openelections/openelections-data-sc/issues?q=is%3Aissue+is%3Aopen+label%3A%22easy+task%22)
 * [Mississippi](https://github.com/openelections/openelections-data-ms/issues)
 * [D.C.](https://github.com/openelections/openelections-data-dc/labels/easy%20task)
 * [Georgia](https://github.com/openelections/openelections-data-ga/labels/easy%20task)
