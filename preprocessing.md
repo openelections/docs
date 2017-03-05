@@ -37,7 +37,8 @@ Tasks involving pre-processing of electronic PDFs often are tagged with our `eas
 
 A similar approach could be used for a fixed-width text file using a text editor, although in that case most of the parsing would be done in the text editor.
 
-Another approach could use a programming language (preferably Python) to read and parse a text or HTML results file and create a CSV file. An example is the [Python parser for results in Josephine County, Oregon](https://github.com/openelections/openelections-data-or/blob/master/josephine_parser.py).
+Another approach could use a programming language (preferably Python) to read and parse a text or HTML results file and create a CSV file. An example is the [Python parser for results in Josephine County, Oregon](https://github.com/openelections/openelections-data-or/blob/master/src/parsers/josephine_parser.py).
+
 
 ## Using OCR
 
