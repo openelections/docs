@@ -4,7 +4,7 @@ title: Common Fields
 permalink: /common-fields/
 ---
 
-# Common Fields in results files
+## Common Fields in Results Files
 
 ### Introduction
 
@@ -16,30 +16,31 @@ Each election year represents a directory containing data files covering electio
 
 | Field | Type | Description |
 |---|---|---|
-| updated_at | | |
-| id | string | OpenElections-created slug for election |
-| start_date | string | |
-| end_date | string | |
-| election_type | string | |
-| result_type | string | |
-| special | string | |
-| office | string | name of office sought |
-| district | string | district number or designation |
-| name_raw | string | "raw" full name of the candidate from the results, if present |
-| last_name | string | parsed family name of the candidate |
-| first_name | string | parsed given name of the candidate|
-| suffix | string | parsed suffix of the candidate |
-| middle_name | string | parsed middle name or initial of the candidate|
-| party | string | "raw" party name or abbreviation from the results (`None` for non-partisan) |
-| jurisdiction | string | |
-| division | string | political jurisdiction using [Open Civic Data Division Identifiers](https://github.com/opencivicdata/ocd-division-ids) - acts as reporting level |
-| votes | integer | number of votes received by the candidate within this division|
-| vote_type | | |
-| total_votes | | |
-| winner | boolean | true for the winning candidate(s) within this division; all other candidates are marked as false |
-| write_in | boolean | true if the candidate is a write-in candidate |
-| year | integer | |
+| `updated_at` | string | |
+| `id` | string | OpenElections-created slug for election |
+| `start_date` | string | |
+| `end_date` | string | |
+| `election_type` | string | |
+| `result_type` | string | |
+| `special` | string | |
+| `office` | string | name of office sought |
+| `district` | string | district number or designation |
+| `name_raw` | string | "raw" full name of the candidate from the results, if present |
+| `last_name` | string | parsed family name of the candidate |
+| `first_name` | string | parsed given name of the candidate |
+| `suffix` | string | parsed suffix of the candidate |
+| `middle_name` | string | parsed middle name or initial of the candidate|
+| `party` | string | "raw" party name or abbreviation from the results (`None` for non-partisan) |
+| `jurisdiction` | string | |
+| `division` | string | political jurisdiction using [Open Civic Data Division Identifiers](https://github.com/opencivicdata/ocd-division-ids) - acts as reporting level |
+| `votes` | integer | number of votes received by the candidate within this division |
+| `vote_type` | string | |
+| `total_votes` | integer | |
+| `winner` | boolean | `true` for the winning candidate(s) within this division; all other candidates are marked as `false` |
+| `write_in` | boolean | `true` if the candidate is a write-in candidate |
+| `year` | integer | year of the election |
+{: .table-striped }
 
 ### Questions
 
-Join us on [the Google Group](https://groups.google.com/forum/?fromgroups=#!forum/openelections) to discuss these specs, or you can [file an issue](https://github.com/openelections/docs/issues/new) on this Github repository, too.
+Join us on [the Google Group](https://groups.google.com/forum/?fromgroups=#!forum/openelections) to discuss these specs, or you can [file an issue](https://github.com/openelections/docs/issues/new) on this GitHub repository, too.

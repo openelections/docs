@@ -25,16 +25,16 @@ We use Python (2.7 for now) to accomplish most of these tasks.
 
 Here's a high-level snapshot of how a state directory's code is organized, using Maryland as an example:
 
-	openelex/us/md/
-	    process.md - Markdown-formatted description of non-standard data gathering process, if not fully automated.
-	    corrections.csv - CSV containing info on corrections to be applied to raw results.
-	    datasource.py - maps raw data sources to standardized filenames and metadata
-	    mappings/ - misc metadata files for data processing pipeline
-	    load/ | load.py - data loaders from local cache into mongo
-	    parse/  - (optional) break out parsers if you have lots of them
-	    transform/ | transform.py - step-wise data clean ups
-	    validate/ | validate.py - data integrity tests
-	    bake/ | bake.py
+- `openelex/us/md/`
+  - `process.md` - Markdown-formatted description of non-standard data gathering process, if not fully automated.
+  - `corrections.csv` - CSV containing info on corrections to be applied to raw results.
+  - `datasource.py` - maps raw data sources to standardized filenames and metadata
+  - `mappings/` - misc metadata files for data processing pipeline
+  - `load/` - load.py - data loaders from local cache into mongo
+  - `parse/` - (optional) break out parsers if you have lots of them
+  - `transform/` - transform.py - step-wise data clean ups
+  - `validate/` - validate.py - data integrity tests
+  - `bake/` - bake.py
 
 As a contributor, we appreciate any part of the data process you can help us with. Let's dive in!
 
@@ -46,7 +46,7 @@ Before you can do any coding, you have to [bootstrap your environment](https://g
 
 #### Overview
 
-OpenElections provides a management command, ``openelex``, to manage the data processing pipeline. You don't have to write any subcommands of your own, but you can use the management command to make local development easier and help us process the data you've gathered.
+OpenElections provides a management command, `openelex`, to manage the data processing pipeline. You don't have to write any subcommands of your own, but you can use the management command to make local development easier and help us process the data you've gathered.
 
 `openelex` provides command-line tasks to:
 
@@ -62,7 +62,7 @@ The OpenElections team will help you wire up your code so that it "just works" u
 
 Here's a quick primer on how to get started.
 
-Pre-flight check:
+##### Pre-flight check:
 
 * Have you [bootstrapped your environment](https://github.com/openelections/openelections-core)?
 
@@ -226,7 +226,7 @@ class CreateCandidates(Transform):
 
     def __call__(self):
         # ...
-{% endhighlight %} 
+{% endhighlight %}
 
 Transforms are run in the order that they are registered, so ORDERING IS IMPORTANT.
 
@@ -241,7 +241,7 @@ def another_transform():
 
 class ClassBasedTransform(Transform):
     # ...
-   
+
 registry.register('md', some_transform)
 registry.register('md', another_transform)
 registry.register('md', ClassBasedTransform)
@@ -273,7 +273,7 @@ MD transforms, in order of execution:
 * parse_candidate_names
 * standardize_office_names
 
-You can select one or more transforms to run using the *--include* flag with a comma-separated list of function names. Or you can run all but selected transforms using the *--exclude* flag. 
+You can select one or more transforms to run using the *--include* flag with a comma-separated list of function names. Or you can run all but selected transforms using the *--exclude* flag.
 
 Run all transforms for state.
 
@@ -333,13 +333,13 @@ You'll most likely want to use the ``bake.election_file`` command to export resu
 
 Both commands take these parameters:
 
-* state - Required. Abbreviation of the state whose results you want to export.
-* fmt - Format of exported results.  The value can be either ``csv`` (the default) or ``json``. 
-* electiontype - Only export results from elections of this type.  Value can be ``primary`` or ``general``.  The default is to export results from all types of elections.
-* raw - If set, export raw results instead of transformed results.  Raw results have a standard schema but have unprocessed values straight from the raw data files.  Default is to bake transformed results.
-* outputdir - The directory where result files will be created.  This defaults to the ``us/bakery`` subdirectory.
-* level - Only export results for this reporting level.  The default is to export results for all reporting levels.
-* datefilter - Only export results from elections from a certain day or year.  This value must be specified in 'YYYY' or 'YYYY-MM-DD' format.  The default is to export results from all elections.
+* `state` - Required. Abbreviation of the state whose results you want to export.
+* `fmt` - Format of exported results.  The value can be either ``csv`` (the default) or ``json``.
+* `electiontype` - Only export results from elections of this type.  Value can be ``primary`` or ``general``.  The default is to export results from all types of elections.
+* `raw` - If set, export raw results instead of transformed results.  Raw results have a standard schema but have unprocessed values straight from the raw data files.  Default is to bake transformed results.
+* `outputdir` - The directory where result files will be created.  This defaults to the ``us/bakery`` subdirectory.
+* `level` - Only export results for this reporting level.  The default is to export results for all reporting levels.
+* `datefilter` - Only export results from elections from a certain day or year.  This value must be specified in 'YYYY' or 'YYYY-MM-DD' format.  The default is to export results from all elections.
 
 Export results for a state with one file for each reporting level in an election.  This is the command used to generate the downloadable results that we publish.
 
@@ -347,7 +347,7 @@ Export results for a state with one file for each reporting level in an election
 $ openelex bake.election_file --state md
 {% endhighlight %}
 
-Export county-level results for Maryland's 2012 general election election. 
+Export county-level results for Maryland's 2012 general election election.
 
 {% highlight bash %}
 $ openelex bake.election_file --state md --datefilter '2012-11-06' --level county
@@ -377,7 +377,7 @@ Export results to a JSON file instead of CSV.
 $ openelex bake.state_file --state md --datefilter 2012 --format json
 {% endhighlight %}
 
-#### Publish 
+#### Publish
 
 This step is only relevent to core contributors with write permissions to repositories in the [openelections organization](https://github.com/openelections/) on GitHub.
 
@@ -417,7 +417,7 @@ If a state requires a manual process, that process is documented in `{state}/pro
 
 #### Populating url\_paths.csv
 
-States with results that require pre-processing (usually conversion from a PDF to a csv file) or other non-standard processing such as scraping single pages should have a `url_paths.csv` file in the `core/openelex/us/<state>/mappings` directory. Such files help to connect raw files like PDFs to their processed CSV versions, which are stored in state-specific repositories on Github (see [West Virginia](https://github.com/openelections/openelections-data-wv) as an example). As such `url_paths.csv` files contain the following attributes:
+States with results that require pre-processing (usually conversion from a PDF to a csv file) or other non-standard processing such as scraping single pages should have a `url_paths.csv` file in the `core/openelex/us/<state>/mappings` directory. Such files help to connect raw files like PDFs to their processed CSV versions, which are stored in state-specific repositories on GitHub (see [West Virginia](https://github.com/openelections/openelections-data-wv) as an example). As such `url_paths.csv` files contain the following attributes:
 
   * date (of election, value should be formatted in the format yyyy-mm-dd)
   * office (a slugified version of the office name, such as `state_senate` or `governor`)
@@ -426,7 +426,7 @@ States with results that require pre-processing (usually conversion from a PDF t
   * party (for primary elections)
   * special (boolean flag, value should be formatted as the string "true")
   * path (the path from the raw file URI - a full URI is acceptable if the hosts differ)
-  * data_url (optional; the url to the processed CSV in the Github repository - it should begin with https://raw.githubusercontent.com/)
+  * data_url (optional; the url to the processed CSV in the GitHub repository - it should begin with https://raw.githubusercontent.com/)
 
 The `data_url` attribute is optional if the files are HTML files that will be scraped and stored as part of the load process. The `datasource.py` file will use the url paths to identify the results files for ingestion. If the state you are working on has PDF results files or multiple systems for handling/publishing results in several formats, you'll need a `url_paths.csv` file.
 
@@ -438,7 +438,7 @@ The file ``us/{state_abbrev}/mappings/{state_abbrev}.csv`` can be edited to cont
 
 This shell command will populate the CSV file with county names and OCD IDs.  Be sure to change the value of ``STATE_ABBREV`` to your state's abbreviation.  This example uses Washington (wa).
 
-{% highlight bash %} 
+{% highlight bash %}
 export STATE_ABBREV=wa
 wget -qO- https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-us.csv | csvgrep -c id -r "ocd-division/country:us/state:$STATE_ABBREV/county:[^/]*$"  | csvcut -c id,name,census_geoid |sed -e "1 s/census_geoid/fips/" | sed -e "1 s/id/ocd_id/" | sed -e "s/ County,/,/" | sed -e "s/place-//" > us/$STATE_ABBREV/mappings/$STATE_ABBREV.csv
 {% endhighlight %}

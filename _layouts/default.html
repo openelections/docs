@@ -19,7 +19,6 @@
     <style>
       body { padding-top: 60px; }
     </style>
-    <link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/assets/css/highlight-tomorrow.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/assets/css/openelex-docs.css">
@@ -31,75 +30,81 @@
     </head>
     <body>
       <div class="container">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-              <a class="brand" href="/">OpenElections Docs</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li><a href="/faq/">FAQ</a></li>
-                  <li><a href="/glossary/">Glossary</a></li>
-                  <li class="dropdown">
-                    <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Getting Involved
-                      <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/getting-involved/">Gathering Metadata</a></li>
-                      <li><a href="/data-entry/">Data Entry</a></li>
-                      <li><a href="/easy-tasks/">Easy Tasks</a></li>
-                      <li><a href="/data-interview/">Data Interview</a></li>
-                      <li><a href="/foia-request/">FOIA Request</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Results
-                      <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/common-fields/">Common Fields</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Metadata
-                      <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/election-metadata/">Overview</a></li>
-                      <li><a href="/metadata-screencast/">Screencast</a></li>
-                      <li><a href="/metadata-api/">API</a></li>
-                      <li><a href="/proofing-metadata/">Proofing</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a data-target="#" data-toggle="dropdown" class="dropdown-toggle" href="#">Contributing Code
-                      <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/guide/">Guide</a></li>
-                      <li><a href="/guide/python-api/">Python API</a></li>
-                      <li><a href="/archive-standardization/">Archive & Standardization</a></li>
-                      <li><a href="/guide/preprocessing/">Preprocessing Data</a></li>
-                      <li><a href="/guide/cookbook/">Cookbook</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div><!--/.nav-collapse -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              <img src="/assets/brand/openelections-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="OpenElections">
+              OpenElections Docs
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav-items-float" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link {% if page.url == '/faq/' %}active{% endif %}" href="/faq/">FAQs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if page.url == '/glossary/' %}active{% endif %}" href="/glossary/">Glossary</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropdown-toggle-split {% if page.url == '/getting-involved/' or page.url == '/data-entry/' or page.url == '/easy-tasks/' or page.url == '/foia-request/' %}active{% endif %}" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Getting Involved
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item {% if page.url == '/getting-involved/' %}font-weight-bold{% endif %}" href="/getting-involved/">Gathering Metadata</a>
+                    <a class="dropdown-item {% if page.url == '/data-entry/' %}font-weight-bold{% endif %}" href="/data-entry/">Data Entry</a>
+                    <a class="dropdown-item {% if page.url == '/easy-tasks/' %}font-weight-bold{% endif %}" href="/easy-tasks/">Easy Tasks</a>
+                    <a class="dropdown-item {% if page.url == '/foia-request/' %}font-weight-bold{% endif %}" href="/foia-request/">FOIA Request</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropdown-toggle-split {% if page.url == '/common-fields/' %}active{% endif %}" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Results
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item {% if page.url == '/common-fields/' %}font-weight-bold{% endif %}" href="/common-fields/">Common Fields</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropdown-toggle-split {% if page.url == '/election-metadata/' or page.url == '/metadata-screencast/' or page.url == '/metadata-api/' or page.url == '/proofing-metadata/' %}active{% endif %}" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Metadata
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item {% if page.url == '/election-metadata/' %}font-weight-bold{% endif %}" href="/election-metadata/">Overview</a>
+                    <a class="dropdown-item {% if page.url == '/metadata-screencast/' %}font-weight-bold{% endif %}" href="/metadata-screencast/">Screencast</a>
+                    <a class="dropdown-item {% if page.url == '/metadata-api/' %}font-weight-bold{% endif %}" href="/metadata-api/">API</a>
+                    <a class="dropdown-item {% if page.url == '/proofing-metadata/' %}font-weight-bold{% endif %}" href="/proofing-metadata/">Proofing</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropdown-toggle-split {% if page.url == '/guide/' or page.url == '/guide/python-api/' or page.url == '/archive-standardization/' or page.url == '/guide/preprocessing/' or page.url == '/guide/cookbook/' %}active{% endif %}" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contributing Code
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item {% if page.url == '/guide/' %}font-weight-bold{% endif %}" href="/guide/">Guide</a>
+                    <a class="dropdown-item {% if page.url == '/guide/python-api/' %}font-weight-bold{% endif %}" href="/guide/python-api/">Python API</a>
+                    <a class="dropdown-item {% if page.url == '/archive-standardization/' %}font-weight-bold{% endif %}" href="/archive-standardization/">Archive &amp; Standardization</a>
+                    <a class="dropdown-item {% if page.url == '/guide/preprocessing/' %}font-weight-bold{% endif %}" href="/guide/preprocessing/">Preprocessing Data</a>
+                    <a class="dropdown-item {% if page.url == '/guide/cookbook/' %}font-weight-bold{% endif %}" href="/guide/cookbook/">Cookbook</a>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
+        </nav>
+
         <div class="row">
-          <div class="span-12">
+          <div class="col">
             {{ content }}
           </div>
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+
+    </script>
     <script>
     (function(window, $) {
       // Header hover anchor links
