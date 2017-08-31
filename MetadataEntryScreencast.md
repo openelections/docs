@@ -12,31 +12,31 @@ This screencast, in two parts, walks you through the process of identifying the 
 ### Part One - Identifying the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=f_uli1lo6XY
-" target="_blank"><img src="http://img.youtube.com/vi/f_uli1lo6XY/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/f_uli1lo6XY/0.jpg"
 alt="Metadata Entry Screencast Pt 1" width="340" height="255" border="10" /></a>
 
 
-* 0:32 - The four main data points
-* 1:23 - Example one: California
-* 1:37 - FEC Web Site state contact info directory
-* 4:57 - Example two: Rhode Island
-* 7:55 - Example three: Alabama
+* [0:32](http://www.youtube.com/watch?v=f_uli1lo6XY&t=32s) - The four main data points
+* [1:23](http://www.youtube.com/watch?v=f_uli1lo6XY&t=1m23s) - Example one: California
+* [1:37](http://www.youtube.com/watch?v=f_uli1lo6XY&t=1m37s) - FEC Web Site state contact info directory
+* [4:57](http://www.youtube.com/watch?v=f_uli1lo6XY&t=4m57s) - Example two: Rhode Island
+* [7:55](http://www.youtube.com/watch?v=f_uli1lo6XY&t=7m55s) - Example three: Alabama
 
 
 
 ### Part Two - Entering the Metadata
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WLhyEAXZbr8
-" target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/WLhyEAXZbr8/0.jpg"
 alt="Metadata Entry Screencast Pt 2" width="340" height="255" border="10" /></a>
 
-* 0:28 - Entering Rhode Island
-* 2:03 - Data Source Section
-* 4:38 - Election Metadata Section
-* 5:57 - Offices Covered Section
-* 6:28 - Results Breakdown Section
-* 7:53 - Notes Section
-* 8:25 - FOIA Logs Section
+* [0:28](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=28s) - Entering Rhode Island
+* [2:03](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=2m3s) - Data Source Section
+* [4:38](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=4m38s) - Election Metadata Section
+* [5:57](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=5m57s) - Offices Covered Section
+* [6:28](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=6m28s) - Results Breakdown Section
+* [7:53](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=7m53s) - Notes Section
+* [8:25](https://www.youtube.com/watch?v=WLhyEAXZbr8&t=8m25s) - FOIA Logs Section
 
 
 

@@ -173,7 +173,7 @@ The FOIA contact logs should be used to track the history of important conversat
    [4]: http://blog.openelections.net/people/ (People)
    [5]: http://blog.openelections.net/get-involved/ (Get Involved)
    [6]: http://blog.openelections.net/faqs/ (FAQs)
-   [7]: https://github.com/openelections (View on Github)
+   [7]: https://github.com/openelections (View on GitHub)
    [8]: http://blog.openelections.net/openelections-glossary/ (Glossary)
    [9]: http://s0.wp.com/wp-content/themes/premium/standard/images/social/small/twitter.png?m=1351293018g
    [10]: http://s0.wp.com/wp-content/themes/premium/standard/images/social/small/vimeo.png?m=1351293018g
