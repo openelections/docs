@@ -15,7 +15,7 @@ such as URLs of raw data files, and for standardizing names of result
 files.
 
 It should be subclassed in state-specific modules as
-``openelex.us.{state_abbrev}.datasource.Datasource``.
+`openelex.us.{state_abbrev}.datasource.Datasource`.
 
 ### BaseDatasource.elections([year=None])
 
@@ -23,13 +23,13 @@ Retrieve election metadata for this state.
 
 **Args:**
 
-* year: Only return metadata for elections from the specified year,
+* `year`: Only return metadata for elections from the specified year,
 provided as an integer.  Defaults to returning elections
 for all years.
 
 **Returns:**
 
-A dictionary, keyed by year.  Each value is a list of dictonariess, 
+A dictionary, keyed by year.  Each value is a list of dictionaries,
 each representing an election and its metadata for that year.
 
 The election dictionaries match the output of the
@@ -46,7 +46,7 @@ This must be implemented in the state-specific class.
 
 **Args:**
 
-* year: Only return mappings for elections from the specified year,
+* `year`: Only return mappings for elections from the specified year,
         provided as an integer.  Defaults to returning mappings for
         all elections.
 
@@ -62,17 +62,17 @@ precinct, there will be one dictionary per result file.
 
 The return dictionary should include the following keys:
 
-* **ocd_id**: The Open Civic Data identifier for the jurisdiction
+* `ocd_id`: The Open Civic Data identifier for the jurisdiction
     that the data file covers.
-* **election**: An identifier string for the election.  You
-    should use the ``slug`` value from the dictionaries returned by
+* `election`: An identifier string for the election.  You
+    should use the `slug` value from the dictionaries returned by
     the ``elections()`` method.
-* **raw_url**: The full URL to the raw data file.
-* **generated_filename**: The standardized filename that will be
+* `raw_url`: The full URL to the raw data file.
+* `generated_filename`: The standardized filename that will be
     used for the locally cached copy of the data.  For more on
     filename standardization, see
-    http://docs.openelections.net/archive-standardization/
-* **name**: The name of the jurisdiction that the data file covers.
+    [http://docs.openelections.net/archive-standardization/](http://docs.openelections.net/archive-standardization/)
+* `name`: The name of the jurisdiction that the data file covers.
 
 **Example mapping dictionary:**
 
@@ -87,15 +87,15 @@ The return dictionary should include the following keys:
 }
 {% endhighlight %}
 
-The ``ocd_id`` and ``name`` values in the returned dictionary
+The `ocd_id` and `name` values in the returned dictionary
 should reflect the jurisdiction that the data covers.  For
 example, a file containing results for all of Delaware would have
-an ocd\_id of ``ocd-division/country:us/state:de`` and a name of
+an `ocd\_id` of `ocd-division/country:us/state:de` and a name of
 "Delaware".
 
 A file containing results for Worcester County, Maryland would
-have an ocd\_id of 
-``ocd-division/country:us/state:md/county:worcester`` and a name
+have an `ocd\_id` of
+`ocd-division/country:us/state:md/county:worcester` and a name
 of "Worcester".
 
 
@@ -107,7 +107,7 @@ This must be implemented in the state-specific class.
 
 **Args:**
 
-* year: Only return URLs for elections from the specified year,
+* `year`: Only return URLs for elections from the specified year,
     provided as an integer.  Default is to return URLs for all
     elections.
 
@@ -123,7 +123,7 @@ This must be implemented in the state-specific class.
 
 **Args:**
 
-* year: Only return URLs for elections from the specified year.
+* `year`: Only return URLs for elections from the specified year.
 Default is to return URL and filename pairs for all elections.
 
 **Returns:**
@@ -142,7 +142,7 @@ you won't have to implement this.
 
 **Args:**
 
-* year: Only return URLs for elections from the specified year.
+* `year`: Only return URLs for elections from the specified year.
 Default is to return URL and filename pairs for all elections.
 
 **Returns:**
@@ -156,9 +156,9 @@ Retrieve jurisdictional mappings based on OCD IDs.
 
 **Args:**
 
-* filename: Filename of the CSV file containing jurisdictional
-mappings.  Default is 
-openelex/us/{state_abbrev}/mappings/{state_abbrev}.csv.
+* `filename`: Filename of the CSV file containing jurisdictional
+mappings.  Default is
+`openelex/us/{state_abbrev}/mappings/{state_abbrev}.csv`.
 
 **Returns:**
 
@@ -192,25 +192,25 @@ Generate a slug for an election.
 
 **Args:**
 
-* election: Dictionary of election attributes as returned by the
+* `election`: Dictionary of election attributes as returned by the
 metadata API.
 
 **Returns:**
 
 A string containing a unique identifier for an election.  For
-example, "ar-2012-05-22-primary".
+example, `ar-2012-05-22-primary`.
 
 ### BaseDatasource.\_url\_paths([filename=None])
 
 Load URL metadata from a CSV file.
 
 The CSV file should follow the conventsions described at
-http://docs.openelections.net/guide/#populating-urlpathscsv
+[http://docs.openelections.net/guide/#populating-urlpathscsv](http://docs.openelections.net/guide/#populating-urlpathscsv)
 
 **Args:**
 
-* filename: Path to a URL paths CSV file.  Default is
-openelex/{state\_abbrev}/mappings/url\_paths.csv
+* `filename`: Path to a URL paths CSV file.  Default is
+`openelex/{state\_abbrev}/mappings/url\_paths.csv`
 
 **Returns:**
 
@@ -235,26 +235,25 @@ A list of dictionaries, like the return value of
 
 Standardize a result filename for an election.
 
-For more on filename standardization conventsions, see
-http://docs.openelections.net/archive-standardization/.
+For more on filename standardization conventions, see
+[http://docs.openelections.net/archive-standardization/](http://docs.openelections.net/archive-standardization/).
 
 **Args:**
 
-* election: Dictionary containing election metadata as returned by
+* `election`: Dictionary containing election metadata as returned by
 the elections API. Required.
-* bits: List of filename elements.  These will be prepended to the
+* `bits`: List of filename elements.  These will be prepended to the
 filename.  List items will be separated by "\_\_".
-* reporting_level: Slug string representing the reporting level of
+* `reporting_level`: Slug string representing the reporting level of
 the data file.  This could be something like 'county' or
 'precinct'.
-* jurisdiction: String representing the jurisdiction of the data
+* `jurisdiction`: String representing the jurisdiction of the data
 covered in the file.
-* office: String representing the office if results are for a single
+* `office`: String representing the office if results are for a single
 office.
-* office_district: String representing the office district numver if
+* `office_district`: String representing the office district number if
 the results in the file are for a single office.
-* extension: Filename extension, including the leading '.'. 
-Defaults to extension of first file in election's
+* `extension`: Filename extension, including the leading `.` defaults to extension of first file in election's
 ``direct_links``.
 
 **Returns:**
@@ -283,7 +282,7 @@ class Datasource(BaseDatasource):
         return [item['raw_url'] for item in self.mappings(year)]
 
     def filename_url_pairs(self, year=None):
-        return [(item['generated_filename'], item['raw_url']) 
+        return [(item['generated_filename'], item['raw_url'])
                 for item in self.mappings(year)]
 
     def _build_metadata(self, year, elections):
@@ -293,12 +292,12 @@ class Datasource(BaseDatasource):
                 "generated_filename": self._standardized_filename(election),
                 "raw_url": election['direct_links'][0],
                 "ocd_id": "ocd-division/country:us/state:{}".format(self.state),
-                "name": self.state, 
+                "name": self.state,
                 "election": election['slug']
             })
         return meta_entries
 
-{% endhighlight %} 
+{% endhighlight %}
 
 ## openelex.lib
 
@@ -307,7 +306,7 @@ class Datasource(BaseDatasource):
 Generate a URL to a preprocessed result file hosted on GitHub
 
 Args:
-    generated_filename: Standardized filename of an election result file.
+    `generated_filename`: Standardized filename of an election result file.
 
 Returns:
     String containing a URL to the preprocessed result file on GitHub.
