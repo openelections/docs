@@ -12,7 +12,7 @@ Here is why easy tasks are important - we need to collect election results from 
 
 ### Quick and Easy Ways to Help OpenElections
 
-Look in `openelections-{state}-data` repositories for GitHub issues labeled as "easy task" - these are small jobs that could involve data entry, a quick scrape or conversion from a PDF file. Here is an example from [Mississippi](https://github.com/openelections/openelections-data-ms/labels/easy%20task) and here are others from [Ohio](https://github.com/openelections/openelections-data-oh/labels/easy%20task).
+Look in `openelections-data-{state}` repositories for GitHub issues labeled as "easy task" - these are small jobs that could involve data entry, a quick scrape or conversion from a PDF file. Here is an example from [Mississippi](https://github.com/openelections/openelections-data-ms/labels/easy%20task) and here are others from [Ohio](https://github.com/openelections/openelections-data-oh/labels/easy%20task).
 
 ### Turning PDFs into CSVs
 
@@ -39,4 +39,4 @@ We have PDF extraction or HTML conversion tasks in the following states:
 * [Utah](https://github.com/openelections/openelections-data-ut/issues?q=is%3Aissue+is%3Aopen+label%3A%22easy+task%22)
 * [South Carolina](https://github.com/openelections/openelections-data-sc/issues?q=is%3Aissue+is%3Aopen+label%3A%22easy+task%22)
 
-If you do contribute code, take a look at [how we do it](http://docs.openelections.net/guide/preprocessing/) and please don't hesitate to ask us any questions. All CSV output files should go in year-specific folders in the specific `openelections-{state}-data` repository, but if you're not familiar with Git or GitHub, that's fine - you can email us the finished CSVs at openelections@gmail.com. Thanks!
+If you do contribute code, take a look at [how we do it](http://docs.openelections.net/guide/preprocessing/) and please don't hesitate to ask us any questions. All CSV output files should go in year-specific folders in the specific `openelections-data-{state}` repository, but if you're not familiar with Git or GitHub, that's fine - you can email us the finished CSVs at openelections@gmail.com. Thanks!
