@@ -28,13 +28,12 @@ Web pages that have tables in them can be even easier to work with - in most cas
 
 ### Getting Started
 
-We have PDF extraction or HTML conversion tasks in the following states:
+We have PDF extraction or HTML/XLS conversion tasks in the following states:
 
-* [New York](https://github.com/openelections/openelections-data-ny/issues/61)
-* [Kentucky](https://github.com/openelections/openelections-data-ky/issues/1)
-* [Oregon](https://github.com/openelections/openelections-data-or/issues/176)
-* [New Jersey](https://github.com/openelections/openelections-data-nj/issues)
-* [Tennessee](https://github.com/openelections/openelections-data-tn/labels/easy%20task)
-* [Utah](https://github.com/openelections/openelections-data-ut/issues?q=is%3Aissue+is%3Aopen+label%3A%22easy+task%22)
+* [Michigan](https://github.com/openelections/openelections-data-mi/issues/11)
+* [Utah](https://github.com/openelections/openelections-data-ut/issues/38)
+* [New York](https://github.com/openelections/openelections-data-ny/issues/78)
+* [Pennsylvania](https://github.com/openelections/openelections-data-pa/issues/29)
+* [Missouri](https://github.com/openelections/openelections-data-mo/issues/17)
 
 If you do contribute code, take a look at [how we do it](http://docs.openelections.net/guide/preprocessing/) and please don't hesitate to ask us any questions. All CSV output files should go in year-specific folders in the specific `openelections-data-{state}` repository, but if you're not familiar with Git or GitHub, that's fine - you can email us the finished CSVs at openelections@gmail.com. Thanks!
