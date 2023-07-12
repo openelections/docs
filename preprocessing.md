@@ -6,7 +6,7 @@ permalink: /guide/preprocessing/
 
 ## Preprocessing results
 
-Some states provide results data in a way that is not easily loaded using the data pipleline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publicly accessible and may have been obtained on physical media or by email.
+Some states provide results data in a way that is not easily loaded using the data pipeline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publicly accessible and may have been obtained on physical media or by email.
 
 In these cases, the data needs to be converted to CSV and placed in a separate repository that is accessible over HTTP. This could be done in a variety of ways, from one-off scripts to more customizable libraries that can handle multiple results files. You might need to perform [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) on images of results before converting them to CSV files. (For those records that have to be manually typed in, see our [data entry](http://docs.openelections.net/data-entry/) page.)
 

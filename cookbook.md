@@ -6,7 +6,7 @@ permalink: /guide/cookbook/
 
 ## Cookbook
 
-Elections data varies widely between different states and between elections in the same state.  As a result, it's not always obvious how to represent this data with the OpenElections models or how to organize code in a state module as it becomes more complex.  This documentation provides some examples of potentially confusing situations and stategies to addres them.
+Elections data varies widely between different states and between elections in the same state.  As a result, it's not always obvious how to represent this data with the OpenElections models or how to organize code in a state module as it becomes more complex.  This documentation provides some examples of potentially confusing situations and strategies to address them.
 
 ### Loading data
 

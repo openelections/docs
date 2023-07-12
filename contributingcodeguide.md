@@ -84,7 +84,7 @@ Our data processing pipeline starts with `datasource.py`, which handles the proc
 
 Like the other parts of the process, a state-specific datasource.py subclasses a `BaseDatasource` that includes some generic functions for the most common tasks. Inside the state-specific datasource.py you'll write functions that handle parts of the process particular to that state: setting up scrapers, handling unusual file paths or a mix of formats.
 
-[Most states involve more than a simple web scrape](/archive-standardization). You might have one big database dump for all election years, or unparseable PDFs that require outsourcing to Mechanical Turk for data entry. More likely, you have a combination of easy-to-use data and older files that are harder to work with. For example, some West Virginia results are stored in PDF files; we convert them to [CSV files](https://github.com/openelections/openelections-data-wv) that match our naming conventions. Whatever the case, the OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
+[Most states involve more than a simple web scrape](/archive-standardization). You might have one big database dump for all election years, or unparsable PDFs that require outsourcing to Mechanical Turk for data entry. More likely, you have a combination of easy-to-use data and older files that are harder to work with. For example, some West Virginia results are stored in PDF files; we convert them to [CSV files](https://github.com/openelections/openelections-data-wv) that match our naming conventions. Whatever the case, the OpenElections team will work with you to come up with a solution that feeds into our data pipeline. It can be a heavy lift, but once complete, the datasource.py step makes downstream processing much easier.
 
 A lot depends on how the results data is organized and stored by the original source. It may come as single spreadsheet files, individual HTML pages or PDF documents. The job for the datasource file is to provide an interface to that data, rename the files using OpenElections conventions and provide some basic political geographic elements. For example, here is the representation of a single results file from Baltimore City for the 2012 primary, mapping it to a OpenElections generated filename:
 
@@ -379,7 +379,7 @@ $ openelex bake.state_file --state md --datefilter 2012 --format json
 
 #### Publish
 
-This step is only relevent to core contributors with write permissions to repositories in the [openelections organization](https://github.com/openelections/) on GitHub.
+This step is only relevant to core contributors with write permissions to repositories in the [openelections organization](https://github.com/openelections/) on GitHub.
 
 Before you publish results:
 
