@@ -6,7 +6,7 @@ permalink: /guide/converting
 
 ## Converting Raw Results to Data
 
-Some states provide results data in a way that is not easily loaded using the data pipleline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publically accessible and may have been obtained on physical media or by email.
+Some states provide results data in a way that is not easily loaded using the data pipeline.  This could be because the data is provided in a format that isn't easily machine readable, such as an image PDF, or a format that isn't easy to inspect or load incrementally, such as a database dump stored in monolithic files.  Also, results may not be publicly accessible and may have been obtained on physical media or by email.
 
 In these cases, the data needs to be converted to CSV and placed in a separate repository that is accessible over HTTP.  Thes [datasource](/guide/#datasource) should be implemented so that it points to the files in the repository.
 
